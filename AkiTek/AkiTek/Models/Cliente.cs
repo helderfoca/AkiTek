@@ -6,12 +6,12 @@ using System.Web;
 
 namespace AkiTek.Models
 {
-    public class Clientes
+    public class Cliente
     {
 
-        public Clientes()
+        public Cliente()
         {
-            ProdutosAdquiridos = new HashSet<Produtos>();
+            Compras = new HashSet<Compra>();
         }
         
 
@@ -28,7 +28,7 @@ namespace AkiTek.Models
 
         public string NIF { get; set; }
 
-        public virtual ICollection<Produtos> ProdutosAdquiridos { get; set; }
+        public virtual ICollection<Compra> Compras { get; set; }
 
     }
 }

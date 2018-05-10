@@ -7,20 +7,17 @@ using System.Web;
 
 namespace AkiTek.Models
 {
-    public class Imagens
+    public class Imagem
     {
 
         [Key]
         public int ID { get; set; }
 
         public string Nome { get; set; }
-
-
-
-        [ForeignKey("Produto")]
-        public int ProdutoFK { get; set; }
-
-        public virtual Produtos Produto { get; set; }
+        
+        [ForeignKey("Computador")]
+        public int ComputadorFK { get; set; }
+        public virtual Computador Computador { get; set; }
         
     }
 }

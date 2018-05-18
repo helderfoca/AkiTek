@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkiTek", "AkiTek\AkiTek.csproj", "{34066C70-2C29-424F-B2FD-0625075A8E92}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AkiTek", "AkiTek\AkiTek.csproj", "{EE1BEE9D-674B-48F8-9B97-E3409BD139EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{34066C70-2C29-424F-B2FD-0625075A8E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{34066C70-2C29-424F-B2FD-0625075A8E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{34066C70-2C29-424F-B2FD-0625075A8E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{34066C70-2C29-424F-B2FD-0625075A8E92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE1BEE9D-674B-48F8-9B97-E3409BD139EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1BEE9D-674B-48F8-9B97-E3409BD139EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1BEE9D-674B-48F8-9B97-E3409BD139EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1BEE9D-674B-48F8-9B97-E3409BD139EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {1F080972-4385-4C94-B7E3-3DB9A52B2A7B}
+		SolutionGuid = {DE8FDBF7-4CAF-43BF-A190-AEEB23D34379}
 	EndGlobalSection
 EndGlobal

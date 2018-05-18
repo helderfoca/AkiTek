@@ -23,9 +23,9 @@ namespace AkiTek.Models
 
         public decimal Preco { get; set; }
 
-        [ForeignKey("Compra")]
+        /*[ForeignKey("Compra")]
         public int CompraFK { get; set; }
-        public virtual Compra Compra { get; set; }
+        public virtual Compra Compra { get; set; }*/
 
         public virtual ICollection<Imagem> Imagens { get; set; }
 

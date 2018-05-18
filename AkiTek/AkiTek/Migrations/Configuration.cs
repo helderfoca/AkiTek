@@ -7,14 +7,14 @@ namespace AkiTek.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<AkiTek.Models.AkiTekDb>
+    internal sealed class Configuration : DbMigrationsConfiguration<AkiTek.Models.ApplicationDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(AkiTek.Models.AkiTekDb context)
+        protected override void Seed(AkiTek.Models.ApplicationDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 
@@ -58,18 +58,18 @@ namespace AkiTek.Migrations
             //*********************************************************************
             // adiciona Computadores
             var computadores = new List<Computador> {
-                new Computador {ID=1, Nome="Computador MSI Rising Star 5X", Preco=new Decimal(1049.00), CompraFK=1,
+                new Computador {ID=1, Nome="Computador MSI Rising Star 5X", Preco=new Decimal(1049.00), //CompraFK=1,
                     ListaComponentes =new List<Componente>{ componentes[0], componentes[1],componentes[2], componentes[3],componentes[4], componentes[5], componentes[6], componentes[7] } },
-                new Computador {ID=2, Nome="Computador MSI Rising Star 5X", Preco=new Decimal(1049.00), CompraFK=2,
+                new Computador {ID=2, Nome="Computador MSI Rising Star 5X", Preco=new Decimal(1049.00), //CompraFK=2,
                     ListaComponentes =new List<Componente>{ componentes[0], componentes[1],componentes[2], componentes[3],componentes[4], componentes[5], componentes[6], componentes[7] } },
-                new Computador {ID=3, Nome="Computador ASUS Legend TXF3 - All in One ", Preco=new Decimal(1299.00), CompraFK=3,
+                new Computador {ID=3, Nome="Computador ASUS Legend TXF3 - All in One ", Preco=new Decimal(1299.00), //CompraFK=3,
                     ListaComponentes =new List<Componente>{ componentes[3],componentes[4], componentes[5], componentes[6], componentes[7], componentes[8], componentes[9], componentes[10], componentes[11], componentes[12], componentes[13], componentes[14] } },
-                new Computador {ID=4, Nome="Computador ASUS Legend TXF3 - All in One ", Preco=new Decimal(1299.00), CompraFK=4,
+                new Computador {ID=4, Nome="Computador ASUS Legend TXF3 - All in One ", Preco=new Decimal(1299.00), //CompraFK=4,
                     ListaComponentes =new List<Componente>{ componentes[3],componentes[4], componentes[5], componentes[6], componentes[7], componentes[8], componentes[9], componentes[10], componentes[11], componentes[12], componentes[13], componentes[14] } }
             };
             computadores.ForEach(aa => context.Computadores.AddOrUpdate(a => a.Nome, aa));
             context.SaveChanges();
-            
+
             //*********************************************************************
             // adiciona Compras
             var compras = new List<Compra> {
@@ -112,7 +112,7 @@ namespace AkiTek.Migrations
             imagens.ForEach(aa => context.Imagens.AddOrUpdate(a => a.Nome, aa));
             context.SaveChanges();
 
-            
+
 
         }
     }

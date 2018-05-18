@@ -58,13 +58,13 @@ namespace AkiTek.Migrations
             //*********************************************************************
             // adiciona Computadores
             var computadores = new List<Computador> {
-                new Computador {ID=1, Nome="Computador MSI Rising Star 5X", Preco=new Decimal(1049.00),
+                new Computador {ID=1, Nome="Computador MSI Rising Star 5X", Preco=new Decimal(1049.00), CompraFK=1,
                     ListaComponentes =new List<Componente>{ componentes[0], componentes[1],componentes[2], componentes[3],componentes[4], componentes[5], componentes[6], componentes[7] } },
-                new Computador {ID=2, Nome="Computador MSI Rising Star 5X", Preco=new Decimal(1049.00),
+                new Computador {ID=2, Nome="Computador MSI Rising Star 5X", Preco=new Decimal(1049.00), CompraFK=2,
                     ListaComponentes =new List<Componente>{ componentes[0], componentes[1],componentes[2], componentes[3],componentes[4], componentes[5], componentes[6], componentes[7] } },
-                new Computador {ID=3, Nome="Computador ASUS Legend TXF3 - All in One ", Preco=new Decimal(1299.00),
+                new Computador {ID=3, Nome="Computador ASUS Legend TXF3 - All in One ", Preco=new Decimal(1299.00), CompraFK=3,
                     ListaComponentes =new List<Componente>{ componentes[3],componentes[4], componentes[5], componentes[6], componentes[7], componentes[8], componentes[9], componentes[10], componentes[11], componentes[12], componentes[13], componentes[14] } },
-                new Computador {ID=4, Nome="Computador ASUS Legend TXF3 - All in One ", Preco=new Decimal(1299.00),
+                new Computador {ID=4, Nome="Computador ASUS Legend TXF3 - All in One ", Preco=new Decimal(1299.00), CompraFK=4,
                     ListaComponentes =new List<Componente>{ componentes[3],componentes[4], componentes[5], componentes[6], componentes[7], componentes[8], componentes[9], componentes[10], componentes[11], componentes[12], componentes[13], componentes[14] } }
             };
             computadores.ForEach(aa => context.Computadores.AddOrUpdate(a => a.Nome, aa));
@@ -84,30 +84,30 @@ namespace AkiTek.Migrations
             //*********************************************************************
             // adiciona Imagens
             var imagens = new List<Imagem> {
-                new Imagem {ID=1, Nome="Completa", ComputadorFK=1},
-                new Imagem {ID=2, Nome="Processador", ComputadorFK=1},
-                new Imagem {ID=3, Nome="Gráfica", ComputadorFK=1},
-                new Imagem {ID=4, Nome="Motherbord", ComputadorFK=1},
-                new Imagem {ID=5, Nome="Fonte", ComputadorFK=1},
-                new Imagem {ID=6, Nome="Memória", ComputadorFK=1},
-                new Imagem {ID=7, Nome="Caixa", ComputadorFK=1},
-                new Imagem {ID=8, Nome="SSD", ComputadorFK=1},
-                new Imagem {ID=9, Nome="HDD", ComputadorFK=1},
+                new Imagem {ID=1, Nome="Completa", Ordem=1, ComputadorFK=1},
+                new Imagem {ID=2, Nome="Processador", Ordem=2, ComputadorFK=1},
+                new Imagem {ID=3, Nome="Gráfica", Ordem=3, ComputadorFK=1},
+                new Imagem {ID=4, Nome="Motherbord", Ordem=4, ComputadorFK=1},
+                new Imagem {ID=5, Nome="Fonte", Ordem=5, ComputadorFK=1},
+                new Imagem {ID=6, Nome="Memória", Ordem=6, ComputadorFK=1},
+                new Imagem {ID=7, Nome="Caixa", Ordem=7, ComputadorFK=1},
+                new Imagem {ID=8, Nome="SSD", Ordem=8, ComputadorFK=1},
+                new Imagem {ID=9, Nome="HDD", Ordem=9, ComputadorFK=1},
 
 
-                new Imagem {ID=10, Nome="Completa", ComputadorFK=2},
-                new Imagem {ID=11, Nome="Processador", ComputadorFK=2},
-                new Imagem {ID=12, Nome="Gráfica", ComputadorFK=2},
-                new Imagem {ID=13, Nome="Motherbord", ComputadorFK=2},
-                new Imagem {ID=14, Nome="Fonte", ComputadorFK=2},
-                new Imagem {ID=15, Nome="Memória", ComputadorFK=2},
-                new Imagem {ID=16, Nome="Caixa", ComputadorFK=2},
-                new Imagem {ID=17, Nome="SSD", ComputadorFK=2},
-                new Imagem {ID=18, Nome="HDD", ComputadorFK=2},
-                new Imagem {ID=19, Nome="Monitor", ComputadorFK=2},
-                new Imagem {ID=20, Nome="Rato", ComputadorFK=2},
-                new Imagem {ID=21, Nome="Teclado", ComputadorFK=2},
-                new Imagem {ID=22, Nome="Tapete", ComputadorFK=2},
+                new Imagem {ID=10, Nome="Completa", Ordem=1, ComputadorFK=2},
+                new Imagem {ID=11, Nome="Processador", Ordem=2, ComputadorFK=2},
+                new Imagem {ID=12, Nome="Gráfica", Ordem=3, ComputadorFK=2},
+                new Imagem {ID=13, Nome="Motherbord", Ordem=4, ComputadorFK=2},
+                new Imagem {ID=14, Nome="Fonte", Ordem=5, ComputadorFK=2},
+                new Imagem {ID=15, Nome="Memória", Ordem=6, ComputadorFK=2},
+                new Imagem {ID=16, Nome="Caixa", Ordem=7, ComputadorFK=2},
+                new Imagem {ID=17, Nome="SSD", Ordem=8, ComputadorFK=2},
+                new Imagem {ID=18, Nome="HDD", Ordem=9, ComputadorFK=2},
+                new Imagem {ID=19, Nome="Monitor", Ordem=10, ComputadorFK=2},
+                new Imagem {ID=20, Nome="Rato", Ordem=11, ComputadorFK=2},
+                new Imagem {ID=21, Nome="Teclado", Ordem=12, ComputadorFK=2},
+                new Imagem {ID=22, Nome="Tapete", Ordem=13, ComputadorFK=2},
             };
             imagens.ForEach(aa => context.Imagens.AddOrUpdate(a => a.Nome, aa));
             context.SaveChanges();

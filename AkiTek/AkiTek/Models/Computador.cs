@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -21,6 +22,10 @@ namespace AkiTek.Models
         public string Nome { get; set; }
 
         public decimal Preco { get; set; }
+
+        [ForeignKey("Compra")]
+        public int CompraFK { get; set; }
+        public virtual Compra Compra { get; set; }
 
         public virtual ICollection<Imagem> Imagens { get; set; }
 

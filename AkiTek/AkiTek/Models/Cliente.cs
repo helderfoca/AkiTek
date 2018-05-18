@@ -22,6 +22,8 @@ namespace AkiTek.Models
         
         public string Morada { get; set; }
 
+        public string CodPostal { get; set; }
+
         public DateTime DataNasc { get; set; }
 
         public string Telemovel { get; set; }

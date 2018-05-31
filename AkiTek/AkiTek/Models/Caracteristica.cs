@@ -6,12 +6,12 @@ using System.Web;
 
 namespace AkiTek.Models
 {
-    public class Componente
+    public class Caracteristica
     {
 
-        public Componente()
+        public Caracteristica()
         {
-            ListaComputadores = new HashSet<Computador>();
+            ListaProdutos = new HashSet<Produto>();
         }
 
         [Key]
@@ -23,7 +23,7 @@ namespace AkiTek.Models
 
         public string Descricao { get; set; }
 
-        public virtual ICollection<Computador> ListaComputadores { get; set; }
+        public virtual ICollection<Produto> ListaProdutos { get; set; }
 
     }
 }

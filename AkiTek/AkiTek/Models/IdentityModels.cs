@@ -34,9 +34,9 @@ namespace AkiTek.Models
 
         public virtual DbSet<Imagem> Imagens { get; set; }
 
-        public virtual DbSet<Componente> Componentes { get; set; }
+        public virtual DbSet<Caracteristica> Caracteristicas { get; set; }
 
-        public virtual DbSet<Computador> Computadores { get; set; }
+        public virtual DbSet<Produto> Produtos { get; set; }
 
 
 

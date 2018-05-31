@@ -11,6 +11,7 @@ namespace AkiTek.Models
     {
 
         [Key]
+        //[ForeignKey("Produto")]
         public int NumFatura { get; set; }
         
         public DateTime DataCompra { get; set; }
@@ -19,9 +20,9 @@ namespace AkiTek.Models
         public int ClienteFK { get; set; }
         public virtual Cliente Cliente { get; set; }
 
-        [ForeignKey("Computador")]
-        public int ComputadorFK { get; set; }
-        public virtual Computador Computador { get; set; }
+        [ForeignKey("Produto")]
+        public int ProdutoFK { get; set; }
+        public virtual Produto Produto { get; set; }
 
         
     }

@@ -192,15 +192,16 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProdutoesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cliente.cs" />
-    <Compile Include="Models\Componente.cs" />
+    <Compile Include="Models\Caracteristica.cs" />
     <Compile Include="Models\Compra.cs" />
-    <Compile Include="Models\Computador.cs" />
+    <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Imagem.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -214,6 +215,19 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\HuaweiY6-1.jpg" />
+    <Content Include="img\HuaweiY6-10.jpg" />
+    <Content Include="img\HuaweiY6-11.jpg" />
+    <Content Include="img\HuaweiY6-12.jpg" />
+    <Content Include="img\HuaweiY6-13.jpg" />
+    <Content Include="img\HuaweiY6-2.jpg" />
+    <Content Include="img\HuaweiY6-3.jpg" />
+    <Content Include="img\HuaweiY6-4.jpg" />
+    <Content Include="img\HuaweiY6-5.jpg" />
+    <Content Include="img\HuaweiY6-6.jpg" />
+    <Content Include="img\HuaweiY6-7.jpg" />
+    <Content Include="img\HuaweiY6-8.jpg" />
+    <Content Include="img\HuaweiY6-9.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -264,6 +278,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Produtoes\Create.cshtml" />
+    <Content Include="Views\Produtoes\Delete.cshtml" />
+    <Content Include="Views\Produtoes\Details.cshtml" />
+    <Content Include="Views\Produtoes\Edit.cshtml" />
+    <Content Include="Views\Produtoes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

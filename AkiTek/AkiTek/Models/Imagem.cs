@@ -17,9 +17,9 @@ namespace AkiTek.Models
         
         public int Ordem { get; set; }
 
-        [ForeignKey("Computador")]
-        public int ComputadorFK { get; set; }
-        public virtual Computador Computador { get; set; }
+        [ForeignKey("Produto")]
+        public int ProdutoFK { get; set; }
+        public virtual Produto Produto { get; set; }
         
     }
 }

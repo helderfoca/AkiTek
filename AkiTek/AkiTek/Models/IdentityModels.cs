@@ -39,6 +39,9 @@ namespace AkiTek.Models
         public virtual DbSet<Produto> Produtos { get; set; }
 
 
+        public virtual DbSet<Equipamentos> Equipamentos { get; set; }
+
+
 
 
 

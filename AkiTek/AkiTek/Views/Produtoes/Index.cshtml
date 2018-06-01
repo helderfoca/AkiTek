@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AkiTek.Models.Produto>
+﻿@model IEnumerable<AkiTek.Models.ProdutosViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -46,10 +46,11 @@
         <div class="col-sm-12 col-lg-3 d-flex align-items-stretch">
             <div class="card m-3" style="width: 18rem;">
                 <a href="/Produtoes/Details/@item.ID">
-                    <img class="card-img-top" src="@item.ImgUrl" alt="Card header image" height="200" style="object-fit:cover">
+                    <img class="card-img-top" src="@item.Imagem" alt="Card header image" height="200" style="object-fit:cover">
                 </a>
                     <div class="card-body">
-                        <h5 class="card-title">@item.Nome</h5>
+                        <h5 class="card-title">@item.NomeProduto</h5>
+                        <span >nº de unidades em stock: @item.Stock</span>
                         @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
             </div>
             </div>

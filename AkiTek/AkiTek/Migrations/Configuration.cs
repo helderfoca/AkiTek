@@ -55,30 +55,52 @@ namespace AkiTek.Migrations
             //*********************************************************************
             // adiciona Produtos
             var produtos = new List<Produto> {
-                new Produto {ID=1, Nome="Smartphone Huawei Y6 2018", ImgUrl="/img/HuaweiY6-1.jpg", Preco=new Decimal(159.90) ,
+                new Produto {ID=1, Nome="Smartphone Huawei Y6 2018", Preco=new Decimal(159.90) ,
                     Descricao ="Amplie a sua visão com o Huawei Y5 2018. O ecrã HD+ de 5.45 polegadas com uma resolução impressionante de 1440 x 720 proporciona um mundo maior à sua visualização. Com um elegante design de ecrã que se harmoniza perfeitamente com a parte traseira, destaca o flash de cor com o quadro da câmara. Leve, vital, requintado, isto é mais que um telefone, é uma declaração de moda.", //Compra=new Compra{ NumFatura=1},
                     ListaCaracteristicas =new List<Caracteristica>{ caracteristicas[0], caracteristicas[1],caracteristicas[2], caracteristicas[3],caracteristicas[4], caracteristicas[5], caracteristicas[6] } },
-                new Produto {ID=2, Nome="Smartphone Huawei Y6 2018", ImgUrl="/img/HuaweiY6-1.jpg", Preco=new Decimal(159.90),
-                    Descricao ="Amplie a sua visão com o Huawei Y5 2018. O ecrã HD+ de 5.45 polegadas com uma resolução impressionante de 1440 x 720 proporciona um mundo maior à sua visualização. Com um elegante design de ecrã que se harmoniza perfeitamente com a parte traseira, destaca o flash de cor com o quadro da câmara. Leve, vital, requintado, isto é mais que um telefone, é uma declaração de moda.", //Compra=new Compra{ NumFatura=2},
+                new Produto {ID=2, Nome="Smartphone Huawei Y10 2018", Preco=new Decimal(159.90),
+                    Descricao ="descrição do Huawei y10 2018",
                     ListaCaracteristicas =new List<Caracteristica>{ caracteristicas[0], caracteristicas[1],caracteristicas[2], caracteristicas[3],caracteristicas[4], caracteristicas[5], caracteristicas[6] } },
                 new Produto {ID=3, Nome="Portátil Lenovo Yoga 310 11.6' 310-11IAP-564", Preco=new Decimal(249.00), //Compra=new Compra{ NumFatura=3},
                     ListaCaracteristicas =new List<Caracteristica>{ caracteristicas[7], caracteristicas[8], caracteristicas[9], caracteristicas[10], caracteristicas[11], caracteristicas[12] } },
-                new Produto {ID=4, Nome="Portátil Lenovo Yoga 310 11.6' 310-11IAP-564", Preco=new Decimal(249.00), //Compra=new Compra{ NumFatura=4},
+                new Produto {ID=4, Nome="Portátil Lenovo Yoga", Preco=new Decimal(500.00), //Compra=new Compra{ NumFatura=4},
                     ListaCaracteristicas =new List<Caracteristica>{ caracteristicas[7], caracteristicas[8], caracteristicas[9], caracteristicas[10], caracteristicas[11], caracteristicas[12] } }
             };
             produtos.ForEach(aa => context.Produtos.AddOrUpdate(a => a.Nome, aa));
             context.SaveChanges();
 
+
             //*********************************************************************
-            // adiciona Compras
-            var compras = new List<Compra> {
-                new Compra {NumFatura=1, DataCompra=new DateTime(2017,05,02), ClienteFK=1, ProdutoFK=1 },//Produto=new Produto{ ID=1}
-                new Compra {NumFatura=2, DataCompra=new DateTime(2016,04,29), ClienteFK=2, ProdutoFK=2 },//Produto=new Produto{ ID=2}
-                new Compra {NumFatura=3, DataCompra=new DateTime(2018,07,13), ClienteFK=3, ProdutoFK=3 },//Produto=new Produto{ ID=3}
-                new Compra {NumFatura=4, DataCompra=new DateTime(2018,07,13), ClienteFK=3, ProdutoFK=4 }//Produto=new Produto{ ID=4}
+            // adiciona Equipamentos
+            var equip = new List<Equipamentos> {
+                new Equipamentos {NumSerie =Guid.NewGuid().ToString() , ProdutoFK=1 , Vendido=false},
+                new Equipamentos {NumSerie =Guid.NewGuid ().ToString() , ProdutoFK=1 , Vendido=false },
+                new Equipamentos {NumSerie =Guid.NewGuid ().ToString() , ProdutoFK=1 , Vendido=false },
+                new Equipamentos {NumSerie =Guid.NewGuid ().ToString() , ProdutoFK=2  , Vendido=false},
+                new Equipamentos {NumSerie =Guid.NewGuid ().ToString() , ProdutoFK=2  , Vendido=false},
+                new Equipamentos {NumSerie =Guid.NewGuid ().ToString() , ProdutoFK=3  , Vendido=false},
+                new Equipamentos {NumSerie =Guid.NewGuid ().ToString() , ProdutoFK=3  , Vendido=false},
+                new Equipamentos {NumSerie =Guid.NewGuid ().ToString() , ProdutoFK=3  , Vendido=false},
+                new Equipamentos {NumSerie =Guid.NewGuid ().ToString() , ProdutoFK=4  , Vendido=false},
             };
-            compras.ForEach(aa => context.Compras.AddOrUpdate(a => a.NumFatura, aa));
+            equip.ForEach(aa => context.Equipamentos.AddOrUpdate(a => a.ID, aa));
             context.SaveChanges();
+
+
+
+
+            //*********************************************************************
+            //// adiciona Compras
+            //var compras = new List<Compra> {
+            //    new Compra {NumFatura=1, DataCompra=new DateTime(2017,05,02), ClienteFK=1,
+            //    ListaProdutos=new List<Produto> {produtos[0]} },
+            //    new Compra {NumFatura=2, DataCompra=new DateTime(2016,04,29), ClienteFK=2,
+            //    ListaProdutos=new List<Produto> {produtos[1], produtos[2]}},
+            //   // new Compra {NumFatura=3, DataCompra=new DateTime(2018,07,13), ClienteFK=3 },
+            //    //new Compra {NumFatura=4, DataCompra=new DateTime(2018,07,13), ClienteFK=3 }
+            //};
+            //compras.ForEach(aa => context.Compras.AddOrUpdate(a => a.NumFatura, aa));
+            //context.SaveChanges();
 
             //*********************************************************************
             // adiciona Imagens

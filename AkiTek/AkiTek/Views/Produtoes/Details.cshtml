@@ -32,7 +32,7 @@
     <div id="topContainer" class="container">
         <div id="topRow" class="row">
             <div id="mainImg" class="col-lg-4">
-                <img src="@Model.ImgUrl" height="200" style="object-fit:cover">
+                <img src="@Model.Imagens.OrderBy(g=>g.Ordem).FirstOrDefault().Nome" height="200" style="object-fit:cover">
             </div>
             <div class="col-lg-8">
                 <div>

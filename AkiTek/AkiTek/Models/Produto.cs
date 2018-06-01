@@ -14,27 +14,22 @@ namespace AkiTek.Models
         {
             Imagens = new HashSet<Imagem>();
             ListaCaracteristicas = new HashSet<Caracteristica>();
+            ListaEquipamentos = new HashSet<Equipamentos>();
         }
 
         [Key]
-        //[ForeignKey("Compra")]
         public int ID { get; set; }
         
         public string Nome { get; set; }
-
-        public string ImgUrl { get; set; }
 
         public decimal Preco { get; set; }
 
         public string Descricao { get; set; }
 
-        /*[ForeignKey("Compra")]
-        public int CompraFK { get; set; }
-        public virtual Compra Compra { get; set; }*/
-
         public virtual ICollection<Imagem> Imagens { get; set; }
 
         public virtual ICollection<Caracteristica> ListaCaracteristicas { get; set; }
 
+        public virtual ICollection<Equipamentos>ListaEquipamentos { get; set; }
     }
 }

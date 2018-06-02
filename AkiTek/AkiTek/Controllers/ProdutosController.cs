@@ -9,10 +9,10 @@ using System.Web.Mvc;
 using AkiTek.Models;
 
 namespace AkiTek.Controllers {
-    public class ProdutoesController : Controller {
+    public class ProdutosController : Controller {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Produtoes
+        // GET: Produtos
         public ActionResult Index() {
             //   var lista2 = db.Produtos.Where(p => !p.Vendido).Select(p => p.Nome).Distinct().ToList();
 
@@ -30,29 +30,29 @@ namespace AkiTek.Controllers {
             return View(lista);
         }
 
-        // GET: Produtoes/Details/5
+        // GET: Produtos/Details/5
         public ActionResult Details(int? id) {
             if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtos.Find(id);
+            Produtos produto = db.Produtos.Find(id);
             if (produto == null) {
                 return HttpNotFound();
             }
             return View(produto);
         }
 
-        // GET: Produtoes/Create
+        // GET: Produtos/Create
         public ActionResult Create() {
             return View();
         }
 
-        // POST: Produtoes/Create
+        // POST: Produtos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nome,Preco")] Produto produto) {
+        public ActionResult Create([Bind(Include = "ID,Nome,Preco,Descricao")] Produtos produto) {
             if (ModelState.IsValid) {
                 db.Produtos.Add(produto);
                 db.SaveChanges();
@@ -62,24 +62,24 @@ namespace AkiTek.Controllers {
             return View(produto);
         }
 
-        // GET: Produtoes/Edit/5
+        // GET: Produtos/Edit/5
         public ActionResult Edit(int? id) {
             if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtos.Find(id);
+            Produtos produto = db.Produtos.Find(id);
             if (produto == null) {
                 return HttpNotFound();
             }
             return View(produto);
         }
 
-        // POST: Produtoes/Edit/5
+        // POST: Produtos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Nome,Preco")] Produto produto) {
+        public ActionResult Edit([Bind(Include = "ID,Nome,Preco,Descricao,ListaCaracteristicas")] Produtos produto) {
             if (ModelState.IsValid) {
                 db.Entry(produto).State = EntityState.Modified;
                 db.SaveChanges();
@@ -88,23 +88,23 @@ namespace AkiTek.Controllers {
             return View(produto);
         }
 
-        // GET: Produtoes/Delete/5
+        // GET: Produtos/Delete/5
         public ActionResult Delete(int? id) {
             if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = db.Produtos.Find(id);
+            Produtos produto = db.Produtos.Find(id);
             if (produto == null) {
                 return HttpNotFound();
             }
             return View(produto);
         }
 
-        // POST: Produtoes/Delete/5
+        // POST: Produtos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id) {
-            Produto produto = db.Produtos.Find(id);
+            Produtos produto = db.Produtos.Find(id);
             db.Produtos.Remove(produto);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -28,17 +28,16 @@ namespace AkiTek.Models
 
         // tabelas da base de dados
 
-        public virtual DbSet<Cliente> Clientes { get; set; }
+        public virtual DbSet<Utilizadores> Utilizadores { get; set; }
 
-        public virtual DbSet<Compra> Compras { get; set; }
+        public virtual DbSet<Compras> Compras { get; set; }
 
-        public virtual DbSet<Imagem> Imagens { get; set; }
+        public virtual DbSet<Imagens> Imagens { get; set; }
 
-        public virtual DbSet<Caracteristica> Caracteristicas { get; set; }
+        public virtual DbSet<Caracteristicas> Caracteristicas { get; set; }
 
-        public virtual DbSet<Produto> Produtos { get; set; }
-
-
+        public virtual DbSet<Produtos> Produtos { get; set; }
+        
         public virtual DbSet<Equipamentos> Equipamentos { get; set; }
 
 

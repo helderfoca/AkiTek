@@ -7,13 +7,13 @@ using System.Web;
 
 namespace AkiTek.Models
 {
-    public class Produto
+    public class Produtos
     {
 
-        public Produto()
+        public Produtos()
         {
-            Imagens = new HashSet<Imagem>();
-            ListaCaracteristicas = new HashSet<Caracteristica>();
+            Imagens = new HashSet<Imagens>();
+            ListaCaracteristicas = new HashSet<Caracteristicas>();
             ListaEquipamentos = new HashSet<Equipamentos>();
         }
 
@@ -22,13 +22,15 @@ namespace AkiTek.Models
         
         public string Nome { get; set; }
 
+        [Display(Name = "Preço")]
         public decimal Preco { get; set; }
 
+        [Display(Name = "Descrição")]
         public string Descricao { get; set; }
 
-        public virtual ICollection<Imagem> Imagens { get; set; }
+        public virtual ICollection<Imagens> Imagens { get; set; }
 
-        public virtual ICollection<Caracteristica> ListaCaracteristicas { get; set; }
+        public virtual ICollection<Caracteristicas> ListaCaracteristicas { get; set; }
 
         public virtual ICollection<Equipamentos>ListaEquipamentos { get; set; }
     }

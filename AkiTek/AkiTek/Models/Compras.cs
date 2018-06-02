@@ -7,9 +7,9 @@ using System.Web;
 
 namespace AkiTek.Models
 {
-    public class Compra
+    public class Compras
     {
-        public Compra() {
+        public Compras() {
             ListaProdutos = new HashSet<Equipamentos>();
         }
 
@@ -20,7 +20,7 @@ namespace AkiTek.Models
 
         [ForeignKey("Cliente")]
         public int ClienteFK { get; set; }
-        public virtual Cliente Cliente { get; set; }
+        public virtual Utilizadores Cliente { get; set; }
 
 
         public virtual ICollection<Equipamentos> ListaProdutos { get; set; }

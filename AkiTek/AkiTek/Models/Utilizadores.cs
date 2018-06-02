@@ -6,12 +6,12 @@ using System.Web;
 
 namespace AkiTek.Models
 {
-    public class Cliente
+    public class Utilizadores
     {
 
-        public Cliente()
+        public Utilizadores()
         {
-            Compras = new HashSet<Compra>();
+            Compras = new HashSet<Compras>();
         }
         
 
@@ -30,7 +30,15 @@ namespace AkiTek.Models
 
         public string NIF { get; set; }
 
-        public virtual ICollection<Compra> Compras { get; set; }
+        public virtual ICollection<Compras> Compras { get; set; }
+
+        //*********************************************
+        /// <summary>
+        /// este atributo destina-se a servir como ponte de ligação
+        /// entre os objetos desta classe
+        /// e os dados da tabela de autenticação
+        /// </summary>
+        public string UserName { get; set; }
 
     }
 }

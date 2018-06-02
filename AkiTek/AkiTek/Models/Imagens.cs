@@ -7,7 +7,7 @@ using System.Web;
 
 namespace AkiTek.Models
 {
-    public class Imagem
+    public class Imagens
     {
       
         [Key]
@@ -19,7 +19,7 @@ namespace AkiTek.Models
 
         [ForeignKey("Produto")]
         public int ProdutoFK { get; set; }
-        public virtual Produto Produto { get; set; }
+        public virtual Produtos Produto { get; set; }
         
     }
 }

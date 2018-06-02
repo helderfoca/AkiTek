@@ -18,10 +18,10 @@ namespace AkiTek.Models {
         //*************************************************************************************
         [ForeignKey("Compra")]
         public int? CompraFK { get; set; }
-        public virtual Compra Compra { get; set; }
+        public virtual Compras Compra { get; set; }
 
         [ForeignKey(nameof(Produto))]
         public int ProdutoFK { get; set; }
-        public virtual Produto Produto { get; set; }
+        public virtual Produtos Produto { get; set; }
     }
 }

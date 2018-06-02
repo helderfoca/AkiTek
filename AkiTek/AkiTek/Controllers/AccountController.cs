@@ -155,6 +155,28 @@ namespace AkiTek.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    try {
+                        // registar os dados específicos do utilizador
+                        Utilizadores utilizador = new Utilizadores();
+                        utilizador = model.Utilizador;
+                        utilizador.UserName = user.UserName;
+                        ApplicationDbContext db = new ApplicationDbContext();
+                        db.Utilizadores.Add(utilizador);
+                        db.SaveChanges();
+                    }
+                    catch (Exception ex) {
+                        Console.Write(ex.Message);
+                        // destruir o user
+                        /// - gerar mensagem para o ModelError
+                        /// - registar na base de dados que ocorreu um erro
+                        ///     - data
+                        ///     - hora
+                        ///     - nome do controller
+                        ///     - nome do método
+                        ///     - texto com a descrição do erro (ex.message)
+                        ///     - outras informações q se considerem necessárias
+                        /// - eventualmente, enviar email para o Administrador do Sistema
+                    }
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771

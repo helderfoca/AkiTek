@@ -12,6 +12,7 @@ namespace AkiTek.Models {
         public string NomeProduto { get; set; }
         public string Imagem { get; set; }
         public int Stock { get; set; }
+        public Decimal Preco { get; set; }
 
 
     }

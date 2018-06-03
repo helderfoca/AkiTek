@@ -21,7 +21,8 @@ namespace AkiTek.Controllers {
                             ID = p.ID,
                             NomeProduto = p.Nome,
                             Imagem = p.Imagens.OrderBy(i => i.Ordem).FirstOrDefault().Nome,
-                            Stock=p.ListaEquipamentos.Where(eq=>!eq.Vendido).ToList().Count
+                            Stock = p.ListaEquipamentos.Where(eq => !eq.Vendido).ToList().Count,
+                            Preco = p.Preco
                         }
 
                 ;

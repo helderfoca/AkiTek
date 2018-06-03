@@ -30,9 +30,6 @@
                     @Html.DisplayFor(modelItem => item.Preco)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                    @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id=item.ID })
                 </td>
             </tr>
         }
@@ -41,21 +38,35 @@
 
 <hr />
 
-    <div id="categories" class="container">
-        <div id="rowCateg" class="row"></div>
+<div id="categories" class="container">
+    <div id="rowCateg" class="row"></div>
 
-        @foreach (var item in Model) {
-            <div class="col-sm-12 col-lg-3 d-flex align-items-stretch">
-                <div class="card m-3" style="width: 18rem;">
-                    <a href="/Produtos/Details/@item.ID">
-                        <img class="card-img-top" src="@item.Imagem" alt="Card header image" height="200" style="object-fit:cover">
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">@item.NomeProduto</h5>
-                        <span>Stock: @item.Stock</span>
-                        @*<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>*@
+    @foreach (var item in Model) {
+        <div class="col-sm-12 col-lg-3 d-flex align-items-stretch">
+            <div class="card m-3" style="width: 18rem;">
+                <a href="/Produtos/Details/@item.ID">
+                    <img class="card-img-top" src="@item.Imagem" alt="Card header image" height="200" style="object-fit:cover">
+                </a>
+                <div class="card-body">
+                    <h5 class="card-title">@item.NomeProduto</h5>
+                    @if (item.Stock > 0) {
+                        <span style="color:green; text-align:center; display:block">Disponível</span>
+                    }
+                    else {
+                        <span style="color:red; text-align:center; display:block">Esgotado</span>
+                    }
+                    <div class="d-flex" style="justify-content:space-around">
+                        <span>@item.Preco€</span>
+                        <a href="#" class="btn btn-danger btn-sm">Comprar</a>
                     </div>
                 </div>
             </div>
+            @if (User.IsInRole("Gestor")) {
+                <p>
+                    @Html.ActionLink("Editar", "Edit", new { id = item.ID })
+                    @Html.ActionLink("Remover", "Delete", new { id = item.ID })
+                </p>
+            }
+        </div>
         }
-    </div>
+</div>

@@ -48,9 +48,9 @@
     <div class="form-group">
         @for (int i = 0; i < Model.ListaCaracteristicas.Count; i++) {
             <div class="col-md-10">
-                @Html.LabelFor(model => model.ListaCaracteristicas.ToList()[i].Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-                @Html.EditorFor(model => model.ListaCaracteristicas.ToList()[i].Nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ListaCaracteristicas.ToList()[i].Nome, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.ListaCaracteristicas.ElementAt(i).Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.EditorFor(model => model.ListaCaracteristicas.ElementAt(i).Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ListaCaracteristicas.ElementAt(i).Nome, "", new { @class = "text-danger" })
                 @Html.LabelFor(model => model.ListaCaracteristicas.ToList()[i].Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
                 @Html.TextAreaFor(model => model.ListaCaracteristicas.ToList()[i].Descricao, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ListaCaracteristicas.ToList()[i].Descricao, "", new { @class = "text-danger" })
@@ -69,7 +69,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Voltar", "Index")
 </div>
 
 @section Scripts {

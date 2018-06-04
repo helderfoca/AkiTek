@@ -44,18 +44,18 @@ namespace AkiTek.Models
 
 
 
-        /// <summary>
-        /// configura a forma como as tabelas são criadas
-        /// </summary>
-        /// <param name="modelBuilder">objeto que referencia o gerador de base de dados</param>
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
+        ///// <summary>
+        ///// configura a forma como as tabelas são criadas
+        ///// </summary>
+        ///// <param name="modelBuilder">objeto que referencia o gerador de base de dados</param>
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
 
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+        //    modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+        //    modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
 
-            base.OnModelCreating(modelBuilder);
-        }
+        //    base.OnModelCreating(modelBuilder);
+        //}
 
         public static ApplicationDbContext Create()
         {

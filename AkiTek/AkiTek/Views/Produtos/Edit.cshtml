@@ -7,10 +7,9 @@
 <h2>Editar Produto</h2>
 
 
-@using (Html.BeginForm())
-{
+@using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
-    
+
 <div class="form-horizontal">
     <br />
     <h4>Detalhes do Produto</h4>
@@ -44,21 +43,22 @@
 
     <br />
     <h4>Especificações do Produto</h4>
+    @Html.Partial("_CaracteristicasPartial", Model.ListaCaracteristicas, null)
     <hr />
-    <div class="form-group">
-        @for (int i = 0; i < Model.ListaCaracteristicas.Count; i++) {
-            <div class="col-md-10">
-                @Html.LabelFor(model => model.ListaCaracteristicas.ElementAt(i).Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-                @Html.EditorFor(model => model.ListaCaracteristicas.ElementAt(i).Nome, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ListaCaracteristicas.ElementAt(i).Nome, "", new { @class = "text-danger" })
-                @Html.LabelFor(model => model.ListaCaracteristicas.ToList()[i].Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
-                @Html.TextAreaFor(model => model.ListaCaracteristicas.ToList()[i].Descricao, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ListaCaracteristicas.ToList()[i].Descricao, "", new { @class = "text-danger" })
-                <br />
-                <br />
-            </div>
-        }
-    </div>
+    @*<div class="form-group">
+            @for (int i = 0; i < Model.ListaCaracteristicas.Count; i++) {
+                <div class="col-md-10">
+                    @Html.LabelFor(model => model.ListaCaracteristicas.ElementAt(i).Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.EditorFor(model => model.ListaCaracteristicas.ElementAt(i).Nome, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ListaCaracteristicas.ElementAt(i).Nome, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.ListaCaracteristicas.ToList()[i].Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.TextAreaFor(model => model.ListaCaracteristicas.ToList()[i].Descricao, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ListaCaracteristicas.ToList()[i].Descricao, "", new { @class = "text-danger" })
+                    <br />
+                    <br />
+                </div>
+            }
+        </div>*@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
@@ -69,7 +69,7 @@
 }
 
 <div>
-    @Html.ActionLink("Voltar", "Index")
+    @Html.ActionLink("Voltar", "Index","Produtos",null,null)
 </div>
 
 @section Scripts {

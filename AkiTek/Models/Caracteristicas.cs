@@ -23,5 +23,7 @@ namespace AkiTek.Models
 
         public virtual ICollection<Produtos> ListaProdutos { get; set; }
 
+        //public int idproduto { get; set; }
+
     }
 }

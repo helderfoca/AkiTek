@@ -38,7 +38,7 @@ namespace AkiTek.Controllers
         }
 
         // GET: Caracteristicas/Create
-        public ActionResult Create()
+        public ActionResult Create(/*int idProduto*/)
         {
             return View();
         }
@@ -52,6 +52,8 @@ namespace AkiTek.Controllers
         {
             if (ModelState.IsValid)
             {
+                //var prod = db.Produtos.Find(caracteristicas.idproduto);
+                //prod.ListaCaracteristicas.Add(caracteristicas);
                 db.Caracteristicas.Add(caracteristicas);
                 db.SaveChanges();
                 return RedirectToAction("Index");

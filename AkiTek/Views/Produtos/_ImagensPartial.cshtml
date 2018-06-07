@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AkiTek.Models.Imagens>
+
+@{
+    ViewBag.Title = "_CaracteristicasPartial";
+}
+
+<table class="table" onfocus="new function { Location.reload() }">
+    
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            <img class="card-img-top" src="@item.Nome" alt="Card header image" height="70" style="object-fit:cover">
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", "Imagens", new { id = item.ID }, new { target = "_blank" }) |
+            @Html.ActionLink("Remover", "Delete", "Imagens", new { id = item.ID, }, new { target = "_blank" })
+        </td>
+    </tr>
+    }
+
+</table>
+<script type="text/javascript">
+    window.onload = init;
+    function init() { window.onfocus = whenInFocus; window.onblur = function () { window.onfocus = whenInFocus; }; };
+    function whenInFocus() { location.reload(); };
+</script>

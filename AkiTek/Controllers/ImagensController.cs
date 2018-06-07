@@ -10,113 +10,114 @@ using AkiTek.Models;
 
 namespace AkiTek.Controllers
 {
-    public class CaracteristicasController : Controller
+    public class ImagensController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Caracteristicas
-        public ActionResult Index(int id)
+        // GET: Imagens
+        public ActionResult Index()
         {
-            //var produto
-
-            return View(db.Caracteristicas.ToList());
+            var imagens = db.Imagens.Include(i => i.Produto);
+            return View(imagens.ToList());
         }
 
-        // GET: Caracteristicas/Details/5
+        // GET: Imagens/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Caracteristicas caracteristicas = db.Caracteristicas.Find(id);
-            if (caracteristicas == null)
+            Imagens imagens = db.Imagens.Find(id);
+            if (imagens == null)
             {
                 return HttpNotFound();
             }
-            return View(caracteristicas);
+            return View(imagens);
         }
 
-        // GET: Caracteristicas/Create
-        public ActionResult Create(/*int idProduto*/)
+        // GET: Imagens/Create
+        public ActionResult Create()
         {
+            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome");
             return View();
         }
 
-        // POST: Caracteristicas/Create
+        // POST: Imagens/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nome,Descricao")] Caracteristicas caracteristicas, int idProduto)
+        public ActionResult Create([Bind(Include = "ID,Nome,Ordem,ProdutoFK")] Imagens imagens)
         {
             if (ModelState.IsValid)
             {
-                var prod = db.Produtos.Find(idProduto);
-                prod.ListaCaracteristicas.Add(caracteristicas);
-                db.Caracteristicas.Add(caracteristicas);
+                db.Imagens.Add(imagens);
                 db.SaveChanges();
-                return View("Close");
+                return RedirectToAction("Index");
             }
 
-            return View(caracteristicas);
+            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
+            return View(imagens);
         }
 
-        // GET: Caracteristicas/Edit/5
+        // GET: Imagens/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Caracteristicas caracteristicas = db.Caracteristicas.Find(id);
-            if (caracteristicas == null)
+            Imagens imagens = db.Imagens.Find(id);
+            if (imagens == null)
             {
                 return HttpNotFound();
             }
-            return View(caracteristicas);
+            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
+            return View(imagens);
         }
 
-        // POST: Caracteristicas/Edit/5
+        // POST: Imagens/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Nome,Descricao")] Caracteristicas caracteristicas)
+        public ActionResult Edit([Bind(Include = "ID,Nome,Ordem,ProdutoFK")] Imagens imagens)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(caracteristicas).State = EntityState.Modified;
+                db.Entry(imagens).State = EntityState.Modified;
                 db.SaveChanges();
-                return View("Close");
+                return RedirectToAction("Index");
             }
-            return View(caracteristicas);
+            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
+            return View(imagens);
         }
 
-        // GET: Caracteristicas/Delete/5
+        // GET: Imagens/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Caracteristicas caracteristicas = db.Caracteristicas.Find(id);
-            if (caracteristicas == null)
+            Imagens imagens = db.Imagens.Find(id);
+            if (imagens == null)
             {
                 return HttpNotFound();
             }
-            return View(caracteristicas);
+            return View(imagens);
         }
 
-        // POST: Caracteristicas/Delete/5
+        // POST: Imagens/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Caracteristicas caracteristicas = db.Caracteristicas.Find(id);
-            db.Caracteristicas.Remove(caracteristicas);
+            Imagens imagens = db.Imagens.Find(id);
+            db.Imagens.Remove(imagens);
             db.SaveChanges();
-            return View("Close");
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

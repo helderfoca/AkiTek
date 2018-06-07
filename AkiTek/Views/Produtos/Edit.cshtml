@@ -44,9 +44,16 @@
     <br />
     <h4>Especificações do Produto</h4>
     <p>
-        @Html.ActionLink("Adicionar", "Create", "Caracteristicas", /*new { idProduto = Model.ID }*/null, new { target = "_blank" })
+        @Html.ActionLink("Adicionar", "Create", "Caracteristicas", new { idProduto = Model.ID }, new { target = "_blank" })
     </p>
     @Html.Partial("_CaracteristicasPartial", Model.ListaCaracteristicas, null)
+    <hr />
+    <br />
+    <h4>Imagens do Produto</h4>
+    <p>
+        @Html.ActionLink("Adicionar", "Create", "Imagens", new { idProduto = Model.ID }, new { target = "_blank" })
+    </p>
+    @Html.Partial("_ImagensPartial", Model.Imagens, null)
     <hr />
     @*<div class="form-group">
             @for (int i = 0; i < Model.ListaCaracteristicas.Count; i++) {

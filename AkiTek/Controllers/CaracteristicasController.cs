@@ -52,10 +52,10 @@ namespace AkiTek.Controllers
         {
             if (ModelState.IsValid)
             {
-                var prod = db.Produtos.Find(idProduto);
-                prod.ListaCaracteristicas.Add(caracteristicas);
-                db.Caracteristicas.Add(caracteristicas);
-                db.SaveChanges();
+                //var prod = db.Produtos.Find(idProduto);
+                //prod.ListaCaracteristicas.Add(caracteristicas);
+                //db.Caracteristicas.Add(caracteristicas);
+                //db.SaveChanges();
                 return View("Close");
             }
 

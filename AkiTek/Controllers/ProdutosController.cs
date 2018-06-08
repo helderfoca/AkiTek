@@ -46,7 +46,7 @@ namespace AkiTek.Controllers {
         // GET: Produtos/Create
         public ActionResult Create() {
             var model = new Produtos();
-            model.ListaCaracteristicas.Add(new Caracteristicas());
+            //model.ListaCaracteristicas.Add(new Caracteristicas());
             return View(model);
         }
 

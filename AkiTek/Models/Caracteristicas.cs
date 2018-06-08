@@ -11,7 +11,7 @@ namespace AkiTek.Models
 
         public Caracteristicas()
         {
-            ListaProdutos = new HashSet<Produtos>();
+            ListaProdutos = new HashSet<DescricaoCaracteristica>();
         }
 
         [Key]
@@ -19,11 +19,7 @@ namespace AkiTek.Models
 
         public string Nome { get; set; }
 
-        public string Descricao { get; set; }
-
-        public virtual ICollection<Produtos> ListaProdutos { get; set; }
-
-        //public int idproduto { get; set; }
+        public virtual ICollection<DescricaoCaracteristica> ListaProdutos { get; set; }
 
     }
 }

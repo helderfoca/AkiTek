@@ -191,6 +191,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CaracteristicasController.cs" />
+    <Compile Include="Controllers\DescricaoCaracteristicasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagensController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -200,6 +201,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DescricaoCaracteristica.cs" />
     <Compile Include="Models\Utilizadores.cs" />
     <Compile Include="Models\Caracteristicas.cs" />
     <Compile Include="Models\Compras.cs" />
@@ -292,7 +294,6 @@
     <Content Include="Views\Caracteristicas\Details.cshtml" />
     <Content Include="Views\Caracteristicas\Edit.cshtml" />
     <Content Include="Views\Caracteristicas\Index.cshtml" />
-    <Content Include="Views\Produtos\_CaracteristicasPartial.cshtml" />
     <Content Include="Views\Shared\Close.cshtml" />
     <Content Include="Views\Imagens\Create.cshtml" />
     <Content Include="Views\Imagens\Delete.cshtml" />
@@ -300,6 +301,12 @@
     <Content Include="Views\Imagens\Edit.cshtml" />
     <Content Include="Views\Imagens\Index.cshtml" />
     <Content Include="Views\Produtos\_ImagensPartial.cshtml" />
+    <Content Include="Views\Produtos\_EspecificacoesPartial.cshtml" />
+    <Content Include="Views\DescricaoCaracteristicas\Create.cshtml" />
+    <Content Include="Views\DescricaoCaracteristicas\Delete.cshtml" />
+    <Content Include="Views\DescricaoCaracteristicas\Details.cshtml" />
+    <Content Include="Views\DescricaoCaracteristicas\Edit.cshtml" />
+    <Content Include="Views\DescricaoCaracteristicas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

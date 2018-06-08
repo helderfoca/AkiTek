@@ -1,13 +1,9 @@
-﻿@model IEnumerable<AkiTek.Models.Caracteristicas>
+﻿@model IEnumerable<AkiTek.Models.DescricaoCaracteristica>
 
-@{
-    ViewBag.Title = "_CaracteristicasPartial";
-}
-
-<table class="table" onfocus="new function { Location.reload() }">
+<table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Nome)
+            @Html.DisplayNameFor(model => model.Caracteristica.Nome)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Descricao)
@@ -18,19 +14,20 @@
     @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Nome)
+                @Html.DisplayFor(modelItem => item.Caracteristica.Nome)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Descricao)
             </td>
             <td>
-                @Html.ActionLink("Editar", "Edit", "Caracteristicas", new { id = item.ID }, new { target = "_blank" }) |
-                @Html.ActionLink("Remover", "Delete", "Caracteristicas", new { id = item.ID, }, new { target = "_blank" })
+                @Html.ActionLink("Editar", "Edit", "DescricaoCaracteristicas", new { id = item.ID }, new { target = "_blank" }) |
+                @Html.ActionLink("Remover", "Delete", "DescricaoCaracteristicas", new { id = item.ID, }, new { target = "_blank" })
             </td>
         </tr>
     }
 
 </table>
+
 <script type="text/javascript">
     window.onload = init;
     function init() { window.onfocus = whenInFocus; window.onblur = function () { window.onfocus = whenInFocus; }; };

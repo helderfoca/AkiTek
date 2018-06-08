@@ -44,9 +44,9 @@
     <br />
     <h4>Especificações do Produto</h4>
     <p>
-        @Html.ActionLink("Adicionar", "Create", "Caracteristicas", new { idProduto = Model.ID }, new { target = "_blank" })
+        @Html.ActionLink("Adicionar", "Create", "DescricaoCaracteristicas", new { idProduto = Model.ID }, new { target = "_blank" })
     </p>
-    @Html.Partial("_CaracteristicasPartial", Model.ListaCaracteristicas, null)
+    @Html.Partial("_EspecificacoesPartial", Model.ListaCaracteristicas, null)
     <hr />
     <br />
     <h4>Imagens do Produto</h4>

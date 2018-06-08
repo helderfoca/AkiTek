@@ -13,7 +13,7 @@ namespace AkiTek.Models
         public Produtos()
         {
             Imagens = new HashSet<Imagens>();
-            ListaCaracteristicas = new HashSet<Caracteristicas>();
+            ListaCaracteristicas = new HashSet<DescricaoCaracteristica>();
             ListaEquipamentos = new HashSet<Equipamentos>();
         }
 
@@ -30,7 +30,7 @@ namespace AkiTek.Models
 
         public virtual ICollection<Imagens> Imagens { get; set; }
 
-        public virtual ICollection<Caracteristicas> ListaCaracteristicas { get; set; }
+        public virtual ICollection<DescricaoCaracteristica> ListaCaracteristicas { get; set; }
 
         public virtual ICollection<Equipamentos>ListaEquipamentos { get; set; }
     }

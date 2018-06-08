@@ -1,0 +1,42 @@
+﻿@model AkiTek.Models.DescricaoCaracteristica
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Eliminar Especificação</h2>
+<br />
+
+<h3>Aguarda confirmação para eliminar a especificação</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Caracteristica.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caracteristica.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Apagar" class="btn btn-default" /> |
+            <a onclick="window.close();" style="cursor: pointer;">
+                <span>Cancelar</span>
+            </a>
+        </div>
+    }
+</div>

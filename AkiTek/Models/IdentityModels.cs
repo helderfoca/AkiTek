@@ -40,6 +40,8 @@ namespace AkiTek.Models
         
         public virtual DbSet<Equipamentos> Equipamentos { get; set; }
 
+        public virtual DbSet<DescricaoCaracteristica> DescricaoCaracteristica { get; set; }
+
 
 
 

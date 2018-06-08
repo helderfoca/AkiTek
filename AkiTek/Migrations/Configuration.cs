@@ -38,10 +38,10 @@ namespace AkiTek.Migrations
                 new Caracteristicas {ID=2, Nome="Dual SIM"},
                 new Caracteristicas {ID=3, Nome="Tipo de SIM"},
                 new Caracteristicas {ID=4, Nome="Rede"},
-                //new Caracteristicas {ID=5, Nome="Sistema Operativo",  Descricao="Android OS, v8.0 (Oreo)"},
-                //new Caracteristicas {ID=6, Nome="Chipset",  Descricao="Qualcomm MSM8917 Snapdragon 425"},
-                //new Caracteristicas {ID=7, Nome="Processador",  Descricao="Quad-core 1.4 GHz Cortex-A53"},
-                //new Caracteristicas {ID=8, Nome="Gráficos",  Descricao="Adreno 308"},
+                new Caracteristicas {ID=5, Nome="Sistema Operativo"},
+                new Caracteristicas {ID=6, Nome="Chipset"},
+                new Caracteristicas {ID=7, Nome="Processador"},
+                new Caracteristicas {ID=8, Nome="Gráficos"},
                 //new Caracteristicas {ID=9, Nome="Armazenamento",  Descricao="16GB - expansível via microSD"},
                 //new Caracteristicas {ID=10, Nome="Memória RAM", Descricao="2GB"},
                 //new Caracteristicas {ID=11, Nome="Ecrã", Descricao="Tipo: Touchscreen capacitivo, S-IPS LCD, 16 Milhões de Cores " +
@@ -58,11 +58,7 @@ namespace AkiTek.Migrations
                 //new Caracteristicas {ID=16, Nome="Bateria",  Descricao="Não removível Li-Ion 3000 mAh"},
                 //new Caracteristicas {ID=17, Nome="Dimensões", Descricao="152.4 x 73 x 7.8 mm"},
                 //new Caracteristicas {ID=18, Nome="Peso", Descricao="150 g"},
-                //new Caracteristicas {ID=19, Nome="Dual SIM", Descricao="Não"},
-                //new Caracteristicas {ID=20, Nome="Sistema Operativo",  Descricao="Apple iOS"},
-                //new Caracteristicas {ID=21, Nome="Chipset",  Descricao="Apple A10 Fusion"},
-                //new Caracteristicas {ID=22, Nome="Processador",  Descricao="Quad-core 2.34 GHz (2x Hurricane + 2x Zephyr)"},
-                //new Caracteristicas {ID=23, Nome="Gráficos",  Descricao="PowerVR Series7XT Plus (six-core graphics)"},
+                
                 //new Caracteristicas {ID=24, Nome="Armazenamento",  Descricao="32GB"},
                 //new Caracteristicas {ID=25, Nome="Ecrã", Descricao="Tamanho: 4.7 polegadas IPS LCD" +
                 //                                                    "Resolução: 750 x 1334(~326 ppi)"},
@@ -92,12 +88,6 @@ namespace AkiTek.Migrations
                     Descricao ="Conheça o iPhone SE, o telefone de 4 polegadas mais avançado de sempre. Para o criar, pegámos num design reconhecido por muitos e reinventámo-lo por completo. O avançado processador A9 é o mesmo do iPhone 6s. A câmara de 12 megapíxeis capta fotografias e vídeos em 4K incríveis. E o Live Photos dá vida às suas fotografias. O resultado é um iPhone que parece pequeno, mas tem tudo para ser grande.",
                     
                 },
-                //new Produtos {ID=3, Nome="Portátil Lenovo Yoga 310 11.6' 310-11IAP-564", Preco=new Decimal(249.00), //Compra=new Compra{ NumFatura=3},
-                //    ListaCaracteristicas =new List<Caracteristicas>{ caracteristicas[7], caracteristicas[8], caracteristicas[9], caracteristicas[10], caracteristicas[11], caracteristicas[12] } 
-                //},
-                //new Produtos {ID=4, Nome="Portátil Lenovo Yoga", Preco=new Decimal(500.00), //Compra=new Compra{ NumFatura=4},
-                //    ListaCaracteristicas =new List<Caracteristicas>{ caracteristicas[7], caracteristicas[8], caracteristicas[9], caracteristicas[10], caracteristicas[11], caracteristicas[12] } 
-                //}
             };
             produtos.ForEach(aa => context.Produtos.AddOrUpdate(a => a.Nome, aa));
             context.SaveChanges();
@@ -114,6 +104,14 @@ namespace AkiTek.Migrations
                 new DescricaoCaracteristica {ID=6, Descricao="Nano SIM", ProdutoFK=2, CaracteristicaFK=3 },
                 new DescricaoCaracteristica {ID=7, Descricao="4G LTE", ProdutoFK=1, CaracteristicaFK=4 },
                 new DescricaoCaracteristica {ID=8, Descricao="4G LTE", ProdutoFK=2, CaracteristicaFK=4 },
+                new DescricaoCaracteristica {ID=9, Descricao="Android OS, v8.0 (Oreo)", ProdutoFK=1, CaracteristicaFK=5 },
+                new DescricaoCaracteristica {ID=10, Descricao="Apple iOS", ProdutoFK=2, CaracteristicaFK=5 },
+                new DescricaoCaracteristica {ID=11, Descricao="Qualcomm MSM8917 Snapdragon 425", ProdutoFK=1, CaracteristicaFK=6 },
+                new DescricaoCaracteristica {ID=12, Descricao="Apple A10 Fusion", ProdutoFK=2, CaracteristicaFK=6 },
+                new DescricaoCaracteristica {ID=13, Descricao="Quad-core 1.4 GHz Cortex-A53", ProdutoFK=1, CaracteristicaFK=7 },
+                new DescricaoCaracteristica {ID=14, Descricao="Quad-core 2.34 GHz (2x Hurricane + 2x Zephyr)", ProdutoFK=2, CaracteristicaFK=7 },
+                new DescricaoCaracteristica {ID=15, Descricao="Adreno 308", ProdutoFK=1, CaracteristicaFK=8 },
+                new DescricaoCaracteristica {ID=16, Descricao="PowerVR Series7XT Plus (six-core graphics)", ProdutoFK=2, CaracteristicaFK=8 },
             };
             desc.ForEach(aa => context.DescricaoCaracteristica.AddOrUpdate(a => a.ID, aa));
             context.SaveChanges();

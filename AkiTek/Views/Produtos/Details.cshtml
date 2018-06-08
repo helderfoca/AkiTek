@@ -6,7 +6,7 @@
 
 <h1>
     <dd>
-    @Html.DisplayFor(model => model.Nome)
+        @Html.DisplayFor(model => model.Nome)
     </dd>
 </h1>
 
@@ -32,7 +32,7 @@
     <div id="topContainer" class="container">
         <div id="topRow" class="row">
             <div id="mainImg" class="col-lg-4">
-                <img src="@Model.Imagens.OrderBy(g=>g.Ordem).FirstOrDefault().Nome" height="200" style="object-fit:cover">
+                <img src="@Model.Imagens.OrderBy(g => g.Ordem).FirstOrDefault().Nome" height="200" style="object-fit:cover">
             </div>
             <div class="col-lg-8">
                 <div>
@@ -45,8 +45,7 @@
     </div>
     <hr />
     <div id="imgBar">
-        @foreach (var item in Model.Imagens)
-        {
+        @foreach (var item in Model.Imagens) {
             <img src="@item.Nome" height="50" style="object-fit:cover">
         }
     </div>
@@ -54,15 +53,21 @@
     <div id="detailsBar">
         <h3 style="font-weight:bold">Especificações</h3>
         <br />
-        @foreach (var item in Model.ListaCaracteristicas)
-        {
+        @foreach (var item in Model.ListaCaracteristicas) {
             <h4 style="font-weight:bold">@item.Nome</h4>
             <p>@item.Descricao</p>
         }
     </div>
     <hr />
 </div>
-<p>
-    @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Voltar", "Index")
-</p>
+@if (User.IsInRole("Gestor")) {
+    <p>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+}
+else {
+    <p>
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+}

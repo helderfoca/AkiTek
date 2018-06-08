@@ -88,10 +88,10 @@ namespace AkiTek.Controllers
             {
                 db.Entry(imagens).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return View("Close");
             }
             ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
-            return View(imagens);
+            return View("Close");
         }
 
         // GET: Imagens/Delete/5
@@ -117,7 +117,7 @@ namespace AkiTek.Controllers
             Imagens imagens = db.Imagens.Find(id);
             db.Imagens.Remove(imagens);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return View("Close");
         }
 
         protected override void Dispose(bool disposing)

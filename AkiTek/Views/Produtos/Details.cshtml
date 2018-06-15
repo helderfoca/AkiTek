@@ -12,23 +12,6 @@
 
 <div>
     <hr />
-    @*<dl class="dl-horizontal">
-                <dt>
-                    @Html.DisplayNameFor(model => model.Nome)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Nome)
-                </dd>
-
-                <dt>
-                    @Html.DisplayNameFor(model => model.Preco)
-                </dt>
-
-                <dd>
-                    @Html.DisplayFor(model => model.Preco)
-                </dd>
-        </dl>*@
     <div id="topContainer" class="container">
         <div id="topRow" class="row">
             <div id="mainImg" class="col-lg-4">
@@ -54,7 +37,7 @@
         <h3 style="font-weight:bold">Especificações</h3>
         <br />
         @foreach (var item in Model.ListaCaracteristicas) {
-            //<h4 style="font-weight:bold">@item.Nome</h4>
+            <h4 style="font-weight:bold">@item.Caracteristica.Nome</h4>
             <p>@item.Descricao</p>
         }
     </div>

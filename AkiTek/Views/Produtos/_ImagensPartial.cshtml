@@ -6,7 +6,7 @@
 
 <table class="table" onfocus="new function { Location.reload() }">
     
-    @foreach (var item in Model) {
+    @foreach (var item in Model.OrderBy(g => g.Ordem)) {
     <tr>
         <td>
             <img class="card-img-top" src="@item.Nome" alt="Card header image" height="70" style="object-fit:cover">

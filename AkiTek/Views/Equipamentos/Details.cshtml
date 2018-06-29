@@ -1,0 +1,58 @@
+﻿@model AkiTek.Models.Equipamentos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Equipamentos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Compra.NumFatura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Compra.NumFatura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Produto.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Produto.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumSerie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumSerie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrecoVenda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrecoVenda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vendido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vendido)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

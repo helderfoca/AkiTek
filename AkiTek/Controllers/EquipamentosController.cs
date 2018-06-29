@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -11,127 +10,117 @@ using AkiTek.Models;
 
 namespace AkiTek.Controllers
 {
-    public class ImagensController : Controller
+    public class EquipamentosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Imagens
+        // GET: Equipamentos
         public ActionResult Index()
         {
-            var imagens = db.Imagens.Include(i => i.Produto);
-            return View(imagens.ToList());
+            var equipamentos = db.Equipamentos.Include(e => e.Compra).Include(e => e.Produto);
+            return View(equipamentos.ToList());
         }
 
-        // GET: Imagens/Details/5
+        // GET: Equipamentos/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Imagens imagens = db.Imagens.Find(id);
-            if (imagens == null)
+            Equipamentos equipamentos = db.Equipamentos.Find(id);
+            if (equipamentos == null)
             {
                 return HttpNotFound();
             }
-            return View(imagens);
+            return View(equipamentos);
         }
 
-        // GET: Imagens/Create
+        // GET: Equipamentos/Create
         public ActionResult Create()
         {
+            ViewBag.CompraFK = new SelectList(db.Compras, "NumFatura", "NumFatura");
             ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome");
             return View();
         }
 
-        // POST: Imagens/Create
+        // POST: Equipamentos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Nome,Ordem,ProdutoFK")] Imagens imagens,HttpPostedFileBase img)
+        public ActionResult Create([Bind(Include = "ID,NumSerie,PrecoVenda,Vendido,CompraFK,ProdutoFK")] Equipamentos equipamentos)
         {
-            
-
             if (ModelState.IsValid)
             {
-                string nome = "/img/" +  imagens.Nome + ".jpg";
-                string url = Path.Combine(Server.MapPath("~/img/"), imagens.Nome + ".jpg"); // indica onde a imagem será guardada
-                imagens.Nome = nome;
-
-                // verificar se chega efetivamente um ficheiro ao servidor
-                if (img == null) {
-                    // não há imagem...
-                    ModelState.AddModelError("", "Não foi fornecida uma imagem..."); // gera MSG de erro
-                    ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
-                    return View(imagens); 
-                }
-                db.Imagens.Add(imagens);
+                equipamentos.NumSerie = Guid.NewGuid().ToString();
+                db.Equipamentos.Add(equipamentos);
                 db.SaveChanges();
-                // guardar a imagem no disco rígido
-                img.SaveAs(url);
                 return View("Close");
             }
 
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
-            return View(imagens);
+            ViewBag.CompraFK = new SelectList(db.Compras, "NumFatura", "NumFatura", equipamentos.CompraFK);
+            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", equipamentos.ProdutoFK);
+            return View(equipamentos);
         }
 
-        // GET: Imagens/Edit/5
+        // GET: Equipamentos/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Imagens imagens = db.Imagens.Find(id);
-            if (imagens == null)
+            Equipamentos equipamentos = db.Equipamentos.Find(id);
+            if (equipamentos == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
-            return View(imagens);
+            ViewBag.CompraFK = new SelectList(db.Compras, "NumFatura", "NumFatura", equipamentos.CompraFK);
+            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", equipamentos.ProdutoFK);
+            return View(equipamentos);
         }
 
-        // POST: Imagens/Edit/5
+        // POST: Equipamentos/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Nome,Ordem,ProdutoFK")] Imagens imagens)
+        public ActionResult Edit([Bind(Include = "ID,NumSerie,PrecoVenda,Vendido,CompraFK,ProdutoFK")] Equipamentos equipamentos)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(imagens).State = EntityState.Modified;
+                db.Entry(equipamentos).State = EntityState.Modified;
                 db.SaveChanges();
-                return View("Close");
+                return RedirectToAction("Index");
             }
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
-            return View("Close");
+            ViewBag.CompraFK = new SelectList(db.Compras, "NumFatura", "NumFatura", equipamentos.CompraFK);
+            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", equipamentos.ProdutoFK);
+            return View(equipamentos);
         }
 
-        // GET: Imagens/Delete/5
+        // GET: Equipamentos/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Imagens imagens = db.Imagens.Find(id);
-            if (imagens == null)
+            Equipamentos equipamentos = db.Equipamentos.Find(id);
+            if (equipamentos == null)
             {
                 return HttpNotFound();
             }
-            return View(imagens);
+            return View(equipamentos);
         }
 
-        // POST: Imagens/Delete/5
+        // POST: Equipamentos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Imagens imagens = db.Imagens.Find(id);
-            db.Imagens.Remove(imagens);
+            Equipamentos equipamentos = db.Equipamentos.Find(id);
+            db.Equipamentos.Remove(equipamentos);
             db.SaveChanges();
             return View("Close");
         }

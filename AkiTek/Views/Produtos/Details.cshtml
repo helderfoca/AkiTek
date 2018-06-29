@@ -28,7 +28,7 @@
     </div>
     <hr />
     <div id="imgBar">
-        @foreach (var item in Model.Imagens) {
+        @foreach (var item in Model.Imagens.OrderBy(g => g.Ordem)) {
             <img src="@item.Nome" height="50" style="object-fit:cover">
         }
     </div>

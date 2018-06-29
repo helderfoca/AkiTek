@@ -192,6 +192,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CaracteristicasController.cs" />
     <Compile Include="Controllers\DescricaoCaracteristicasController.cs" />
+    <Compile Include="Controllers\EquipamentosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImagensController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -307,6 +308,12 @@
     <Content Include="Views\DescricaoCaracteristicas\Details.cshtml" />
     <Content Include="Views\DescricaoCaracteristicas\Edit.cshtml" />
     <Content Include="Views\DescricaoCaracteristicas\Index.cshtml" />
+    <Content Include="Views\Equipamentos\Create.cshtml" />
+    <Content Include="Views\Equipamentos\Delete.cshtml" />
+    <Content Include="Views\Equipamentos\Details.cshtml" />
+    <Content Include="Views\Equipamentos\Edit.cshtml" />
+    <Content Include="Views\Equipamentos\Index.cshtml" />
+    <Content Include="Views\Produtos\_EquipamentosPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -55,23 +55,16 @@
     </p>
     @Html.Partial("_ImagensPartial", Model.Imagens, null)
     <hr />
-    @*<div class="form-group">
-            @for (int i = 0; i < Model.ListaCaracteristicas.Count; i++) {
-                <div class="col-md-10">
-                    @Html.LabelFor(model => model.ListaCaracteristicas.ElementAt(i).Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-                    @Html.EditorFor(model => model.ListaCaracteristicas.ElementAt(i).Nome, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ListaCaracteristicas.ElementAt(i).Nome, "", new { @class = "text-danger" })
-                    @Html.LabelFor(model => model.ListaCaracteristicas.ToList()[i].Descricao, htmlAttributes: new { @class = "control-label col-md-2" })
-                    @Html.TextAreaFor(model => model.ListaCaracteristicas.ToList()[i].Descricao, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ListaCaracteristicas.ToList()[i].Descricao, "", new { @class = "text-danger" })
-                    <br />
-                    <br />
-                </div>
-            }
-        </div>*@
+    <br />
+    <h4>Equipamentos</h4>
+    <p>
+        @Html.ActionLink("Adicionar", "Create", "Equipamentos", new { idProduto = Model.ID }, new { target = "_blank" })
+    </p>
+    @Html.Partial("_EquipamentosPartial", Model.ListaEquipamentos, null)
+    <hr />
 
     <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
+        <div class="col-md-10">
             <input type="submit" value="Save" class="btn btn-default" />
         </div>
     </div>

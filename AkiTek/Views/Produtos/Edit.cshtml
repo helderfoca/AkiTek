@@ -44,7 +44,7 @@
     <br />
     <h4>Especificações do Produto</h4>
     <p>
-        @Html.ActionLink("Adicionar", "Create", "DescricaoCaracteristicas", new { idProduto = Model.ID }, new { target = "_blank" })
+        @Html.ActionLink("Adicionar", "Create", "DescricaoCaracteristicas", new { produtoFK = Model.ID }, new { target = "_blank" })
     </p>
     @Html.Partial("_EspecificacoesPartial", Model.ListaCaracteristicas, null)
     <hr />
@@ -58,7 +58,7 @@
     <br />
     <h4>Equipamentos</h4>
     <p>
-        @Html.ActionLink("Adicionar", "Create", "Equipamentos", new { idProduto = Model.ID }, new { target = "_blank" })
+        @Html.ActionLink("Adicionar", "Create", "Equipamentos", new { produtoFK = Model.ID }, new { target = "_blank" })
     </p>
     @Html.Partial("_EquipamentosPartial", Model.ListaEquipamentos, null)
     <hr />

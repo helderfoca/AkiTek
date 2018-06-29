@@ -37,10 +37,10 @@ namespace AkiTek.Controllers
         }
 
         // GET: DescricaoCaracteristicas/Create
-        public ActionResult Create()
+        public ActionResult Create( int ProdutoFK)
         {
             ViewBag.CaracteristicaFK = new SelectList(db.Caracteristicas, "ID", "Nome");
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome");
+            //ViewBag.ProdutoFK = db.Produtos.Find(ProdutoFK);
             return View();
         }
 
@@ -59,7 +59,7 @@ namespace AkiTek.Controllers
             }
 
             ViewBag.CaracteristicaFK = new SelectList(db.Caracteristicas, "ID", "Nome", descricaoCaracteristica.CaracteristicaFK);
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", descricaoCaracteristica.ProdutoFK);
+            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", descricaoCaracteristica.ProdutoFK);
             return View(descricaoCaracteristica);
         }
 

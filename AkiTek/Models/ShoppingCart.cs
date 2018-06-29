@@ -114,14 +114,14 @@ namespace AkiTek.Models {
                     Quantity = item.Quantity,
                     ListaEquip = item.Produto.ListaEquipamentos.Take(item.Quantity).ToList()
                 };
-            foreach (var eq in orderDetail.ListaEquip) {
-                    eq.Vendido = true;
-            }
+                foreach (var eq in orderDetail.ListaEquip) {
+                        eq.Vendido = true;
+                }
                     
-            // Set the order total of the shopping cart
-            orderTotal += (item.Quantity * item.Produto.Preco);
+                // Set the order total of the shopping cart
+                orderTotal += (item.Quantity * item.Produto.Preco);
 
-            storeDB.OrderDetails.Add(orderDetail);
+                storeDB.OrderDetails.Add(orderDetail);
 
             }
             // Set the order's total to the orderTotal count

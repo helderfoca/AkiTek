@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 
 namespace AkiTek.Models {
@@ -49,5 +50,8 @@ namespace AkiTek.Models {
         [ScaffoldColumn(false)]
         public decimal Total { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
+        [ForeignKey("User")]
+        public int? UserFK { get; set; }
+        public virtual Utilizadores User { get; set; }
     }
 }

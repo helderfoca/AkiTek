@@ -37,10 +37,10 @@ namespace AkiTek.Controllers
         }
 
         // GET: Equipamentos/Create
-        public ActionResult Create()
+        public ActionResult Create(int produtoFK)
         {
             ViewBag.CompraFK = new SelectList(db.OrderDetails, "NumFatura", "NumFatura");
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome");
+            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome");
             return View();
         }
 
@@ -60,7 +60,7 @@ namespace AkiTek.Controllers
             }
 
             ViewBag.CompraFK = new SelectList(db.OrderDetails, "NumFatura", "NumFatura", equipamentos.CompraFK);
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", equipamentos.ProdutoFK);
+            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", equipamentos.ProdutoFK);
             return View(equipamentos);
         }
 

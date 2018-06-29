@@ -42,6 +42,11 @@ namespace AkiTek.Models
 
         public virtual DbSet<DescricaoCaracteristica> DescricaoCaracteristica { get; set; }
 
+        // Carrinho
+
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
 
 
@@ -63,5 +68,7 @@ namespace AkiTek.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<AkiTek.ViewModels.ShoppingCartViewModel> ShoppingCartViewModels { get; set; }
     }
 }

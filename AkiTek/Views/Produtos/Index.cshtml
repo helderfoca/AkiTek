@@ -30,10 +30,12 @@
                     else {
                         <span style="color:red; text-align:center; display:block">Esgotado</span>
                     }
-                    <div class="d-flex" style="display:flex;justify-content:space-around">
-                        <span>@item.Preco€</span>
-                        <a href="#" class="btn btn-danger btn-sm">Comprar</a>
-                    </div>
+                        <div class="d-flex" style="display:flex;justify-content:space-around">
+                            <p class="button">
+                                @Html.ActionLink("Add to cart", "AddToCart","ShoppingCart", new { id = item.ID}, "")
+                            </p>
+                            <a href="#" class="btn btn-danger btn-sm">Comprar</a>
+                        </div>
                 </div>
             </div>
             @if (User.IsInRole("Gestor")) {

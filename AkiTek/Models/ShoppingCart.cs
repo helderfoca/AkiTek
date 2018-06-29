@@ -24,20 +24,24 @@ namespace AkiTek.Models {
                 c => c.CartId == ShoppingCartId
                 && c.ProdutoId == produto.ID);
 
-            if (cartItem == null) {
+            var equips = produto.ListaEquipamentos.Where(eq => !eq.Vendido);
+            var numEquips = equips.Count();
+            if (cartItem == null && numEquips>0) {
                 // Create a new cart item if no cart item exists
                 cartItem = new Cart {
                     ProdutoId = produto.ID,
                     CartId = ShoppingCartId,
                     Quantity = 1,
-                    DateCreated = DateTime.Now
+                    DateCreated = DateTime.Now,
                 };
                 storeDB.Carts.Add(cartItem);
             }
             else {
-                // If the item does exist in the cart, 
-                // then add one to the quantity
-                cartItem.Quantity++;
+                if (cartItem.Quantity < numEquips) {
+                    // If the item does exist in the cart, 
+                    // then add one to the quantity
+                    cartItem.Quantity++;
+                }
             }
             // Save changes
             storeDB.SaveChanges();
@@ -107,12 +111,17 @@ namespace AkiTek.Models {
                     ProdutoId = item.ProdutoId,
                     OrderId = order.OrderId,
                     UnitPrice = item.Produto.Preco,
-                    Quantity = item.Quantity
+                    Quantity = item.Quantity,
+                    ListaEquip = item.Produto.ListaEquipamentos.Take(item.Quantity).ToList()
                 };
-                // Set the order total of the shopping cart
-                orderTotal += (item.Quantity * item.Produto.Preco);
+            foreach (var eq in orderDetail.ListaEquip) {
+                    eq.Vendido = true;
+            }
+                    
+            // Set the order total of the shopping cart
+            orderTotal += (item.Quantity * item.Produto.Preco);
 
-                storeDB.OrderDetails.Add(orderDetail);
+            storeDB.OrderDetails.Add(orderDetail);
 
             }
             // Set the order's total to the orderTotal count

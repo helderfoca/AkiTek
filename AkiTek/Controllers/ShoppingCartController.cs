@@ -27,13 +27,13 @@ namespace AkiTek.Controllers
         // GET: /Store/AddToCart/5
         public ActionResult AddToCart(int id) {
             // Retrieve the album from the database
-            var addedAlbum = storeDB.Produtos
+            var addedProd = storeDB.Produtos
                 .Single(produto => produto.ID == id);
 
             // Add it to the shopping cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            cart.AddToCart(addedAlbum);
+            cart.AddToCart(addedProd);
 
             // Go back to the main store page for more shopping
             return RedirectToAction("Index");

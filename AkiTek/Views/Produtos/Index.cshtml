@@ -24,18 +24,19 @@
                 </a>
                 <div class="card-body">
                     <h5 class="card-title">@item.NomeProduto</h5>
-                    @if (item.Stock > 0) {
-                        <span style="color:green; text-align:center; display:block">Disponível</span>
-                    }
-                    else {
-                        <span style="color:red; text-align:center; display:block">Esgotado</span>
-                    }
-                        <div class="d-flex" style="display:flex;justify-content:space-around">
-                            <p class="button">
-                                @Html.ActionLink("Add to cart", "AddToCart","ShoppingCart", new { id = item.ID}, "")
+                    <div class="d-flex" style="display:flex;justify-content:space-around">
+                        @if (item.Stock > 0) {
+                            <p class="btn btn-danger btn-sm">
+                                @Html.ActionLink("Comprar", "AddToCart", "ShoppingCart", new { id = item.ID }, new { target = "_blank", @style = "color:#ffffff;" })
                             </p>
-                            <a href="#" class="btn btn-danger btn-sm">Comprar</a>
-                        </div>
+                        }
+                        @if (item.Stock > 0) {
+                            <span class="btn btn-sm" style="color:green; text-align:center; display:block" disabled>Disponível</span>
+                        }
+                        else {
+                            <span class="btn btn-sm" style="color:red; text-align:center; display:block" disabled>Esgotado</span>
+                        }
+                    </div>
                 </div>
             </div>
             @if (User.IsInRole("Gestor")) {

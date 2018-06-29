@@ -5,6 +5,11 @@ using System.Web;
 
 namespace AkiTek.Models {
     public class OrderDetail {
+
+        public OrderDetail() {
+            ListaEquip = new HashSet<Equipamentos>();
+        }
+
         public int OrderDetailId { get; set; }
         public int OrderId { get; set; }
         public int ProdutoId { get; set; }
@@ -12,5 +17,6 @@ namespace AkiTek.Models {
         public decimal UnitPrice { get; set; }
         public virtual Produtos Produto { get; set; }
         public virtual Order Order { get; set; }
+        public virtual ICollection<Equipamentos> ListaEquip { get; set; }
     }
 }

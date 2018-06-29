@@ -11,7 +11,7 @@ namespace AkiTek.Models
 
         public Utilizadores()
         {
-            Compras = new HashSet<Compras>();
+            Compras = new HashSet<Order>();
         }
         
 
@@ -30,7 +30,7 @@ namespace AkiTek.Models
 
         public string NIF { get; set; }
 
-        public virtual ICollection<Compras> Compras { get; set; }
+        public virtual ICollection<Order> Compras { get; set; }
 
         //*********************************************
         /// <summary>

@@ -39,7 +39,7 @@ namespace AkiTek.Controllers
         // GET: Equipamentos/Create
         public ActionResult Create()
         {
-            ViewBag.CompraFK = new SelectList(db.Compras, "NumFatura", "NumFatura");
+            ViewBag.CompraFK = new SelectList(db.OrderDetails, "NumFatura", "NumFatura");
             ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome");
             return View();
         }
@@ -59,7 +59,7 @@ namespace AkiTek.Controllers
                 return View("Close");
             }
 
-            ViewBag.CompraFK = new SelectList(db.Compras, "NumFatura", "NumFatura", equipamentos.CompraFK);
+            ViewBag.CompraFK = new SelectList(db.OrderDetails, "NumFatura", "NumFatura", equipamentos.CompraFK);
             ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", equipamentos.ProdutoFK);
             return View(equipamentos);
         }
@@ -76,7 +76,7 @@ namespace AkiTek.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CompraFK = new SelectList(db.Compras, "NumFatura", "NumFatura", equipamentos.CompraFK);
+            ViewBag.CompraFK = new SelectList(db.OrderDetails, "NumFatura", "NumFatura", equipamentos.CompraFK);
             ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", equipamentos.ProdutoFK);
             return View(equipamentos);
         }
@@ -94,7 +94,7 @@ namespace AkiTek.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CompraFK = new SelectList(db.Compras, "NumFatura", "NumFatura", equipamentos.CompraFK);
+            ViewBag.CompraFK = new SelectList(db.OrderDetails, "NumFatura", "NumFatura", equipamentos.CompraFK);
             ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", equipamentos.ProdutoFK);
             return View(equipamentos);
         }

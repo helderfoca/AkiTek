@@ -30,7 +30,7 @@ namespace AkiTek.Models
 
         public virtual DbSet<Utilizadores> Utilizadores { get; set; }
 
-        public virtual DbSet<Compras> Compras { get; set; }
+        //public virtual DbSet<Compras> Compras { get; set; }
 
         public virtual DbSet<Imagens> Imagens { get; set; }
 

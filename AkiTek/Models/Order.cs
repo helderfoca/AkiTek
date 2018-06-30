@@ -19,12 +19,12 @@ namespace AkiTek.Models {
 
         [Required(ErrorMessage = "Nome Próprio é necessário")]
         [DisplayName("Nome Próprio")]
-        [StringLength(160)]
+        [StringLength(20)]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Apelido é necessário")]
         [DisplayName("Apelido")]
-        [StringLength(160)]
+        [StringLength(20)]
         public string LastName { get; set; }
 
         [DisplayName("Morada")]
@@ -34,7 +34,7 @@ namespace AkiTek.Models {
 
         [DisplayName("Cidade")]
         [Required(ErrorMessage = "Cidade é necessária")]
-        [StringLength(40)]
+        [StringLength(20)]
         public string City { get; set; }
 
         [Required(ErrorMessage = "NIF é necessário")]
@@ -48,7 +48,7 @@ namespace AkiTek.Models {
 
         [DisplayName("País")]
         [Required(ErrorMessage = "País é necessário")]
-        [StringLength(40)]
+        [StringLength(20)]
         public string Country { get; set; }
 
 

@@ -24,9 +24,10 @@ namespace AkiTek.Migrations
             //*********************************************************************
             // adiciona Clientes
             var clientes = new List<Utilizadores> {
-                new Utilizadores {ID=1, Nome="Tânia Vieira", Morada="Rua do Mouchão nº430 Tomar", DataNasc=new DateTime(1993,11,19), Telemovel="912353434", NIF="346234654" },
-                new Utilizadores {ID=2, Nome="Edgar Vinhas", Morada="Rua do Falcão nº102 Ourém", DataNasc=new DateTime(1990,01,29), Telemovel="924653434", NIF="346734654" },
-                new Utilizadores {ID=3, Nome="Miguel Rodrigues", Morada="Rua D.Nuno nº14 Gaia", DataNasc=new DateTime(1983,09,02), Telemovel="964895644", NIF="346285674" }
+                new Utilizadores {ID=1, Nome="Hélder", Apelido="Lopes", DataNasc=new DateTime(1997,01,14), Telemovel="913725253", UserName="admin@akitek.pt" },
+                new Utilizadores {ID=2, Nome="Tânia", Apelido="Vieira", DataNasc=new DateTime(1993,11,19), Telemovel="912353434", UserName="gestor@akitek.pt" },
+                new Utilizadores {ID=3, Nome="Edgar", Apelido="Vinhas", DataNasc=new DateTime(1990,01,29), Telemovel="924653434", UserName="vinhas@akitek.pt" },
+                new Utilizadores {ID=4, Nome="Miguel", Apelido="Rodrigues", DataNasc=new DateTime(1983,09,02), Telemovel="964895644", UserName="rod@akitek.pt" }
             };
             clientes.ForEach(aa => context.Utilizadores.AddOrUpdate(a => a.Nome, aa));
             context.SaveChanges();

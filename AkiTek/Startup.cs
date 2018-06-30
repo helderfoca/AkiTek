@@ -38,7 +38,7 @@ namespace AkiTek
                 roleManager.Create(role);
             }
             
-            // criar a Role 'Gestor'
+            // criar a Role 'Admin'
             if (!roleManager.RoleExists("Admin")) {
                 // não existe a 'role'
                 // então, criar essa role
@@ -47,11 +47,10 @@ namespace AkiTek
                 roleManager.Create(role);
             }
             
-            // criar um utilizador 'Gestor'
+            // criar um utilizador 'Admin'
             var user = new ApplicationUser();
             user.UserName = "admin@akitek.pt";
             user.Email = "admin@akitek.pt";
-            //  user.Nome = "";
             string userPWD = "123_Asd";
             var chkUser = userManager.Create(user, userPWD);
             
@@ -59,6 +58,43 @@ namespace AkiTek
             if (chkUser.Succeeded) {
                 var result1 = userManager.AddToRole(user.Id, "Admin");
             }
+
+            // criar um utilizador 'Admin'
+            user = new ApplicationUser();
+            user.UserName = "gestor@akitek.pt";
+            user.Email = "gestor@akitek.pt";
+            userPWD = "123_Asd";
+            chkUser = userManager.Create(user, userPWD);
+
+            //Adicionar o Utilizador à respetiva Role
+            if (chkUser.Succeeded) {
+                var result1 = userManager.AddToRole(user.Id, "Admin");
+            }
+
+            // criar um utilizador 'Cliente'
+            user = new ApplicationUser();
+            user.UserName = "vinhas@akitek.pt";
+            user.Email = "vinhas@akitek.pt";
+            userPWD = "Asd_123";
+            chkUser = userManager.Create(user, userPWD);
+
+            //Adicionar o Utilizador à respetiva Role
+            if (chkUser.Succeeded) {
+                var result1 = userManager.AddToRole(user.Id, "Cliente");
+            }
+
+            // criar um utilizador 'Cliente'
+            user = new ApplicationUser();
+            user.UserName = "rod@akitek.pt";
+            user.Email = "rod@akitek.pt";
+            userPWD = "Asd_123";
+            chkUser = userManager.Create(user, userPWD);
+
+            //Adicionar o Utilizador à respetiva Role
+            if (chkUser.Succeeded) {
+                var result1 = userManager.AddToRole(user.Id, "Cliente");
+            }
+
 
         }
 

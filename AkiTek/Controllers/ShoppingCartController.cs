@@ -46,7 +46,7 @@ namespace AkiTek.Controllers
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
             // Get the name of the album to display confirmation
-            string albumName = storeDB.Carts
+            string nomeProduto = storeDB.Carts
                 .Single(item => item.RecordId == id).Produto.Nome;
 
             // Remove from cart
@@ -54,8 +54,8 @@ namespace AkiTek.Controllers
 
             // Display the confirmation message
             var results = new ShoppingCartRemoveViewModel {
-                Message = Server.HtmlEncode(albumName) +
-                    " has been removed from your shopping cart.",
+                Message = Server.HtmlEncode(nomeProduto) +
+                    " foi removido do carrinho.",
                 CartTotal = cart.GetTotal(),
                 CartCount = cart.GetCount(),
                 ItemCount = itemCount,

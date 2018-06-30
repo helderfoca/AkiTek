@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace MvcMusicStore.Controllers {
+namespace AkiTek.Controllers {
     [Authorize]
     public class CheckoutController : Controller {
         ApplicationDbContext storeDB = new ApplicationDbContext();

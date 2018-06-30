@@ -229,6 +229,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\Home1.jpg" />
+    <Content Include="img\Home3.jpg" />
     <Content Include="img\HuaweiY6-1.jpg" />
     <Content Include="img\HuaweiY6-10.jpg" />
     <Content Include="img\HuaweiY6-11.jpg" />
@@ -242,6 +244,8 @@
     <Content Include="img\HuaweiY6-7.jpg" />
     <Content Include="img\HuaweiY6-8.jpg" />
     <Content Include="img\HuaweiY6-9.jpg" />
+    <Content Include="img\iPhone7Gold-1.jpg" />
+    <Content Include="img\iPhone7Gold-2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

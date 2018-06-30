@@ -23,9 +23,14 @@
         <div class="col-md-4">
             <h2>Novo Produto</h2>
             <div class="card m-3" style="width: 18rem;">
-                <a href="/Produtos/Details/@ViewBag.LastProd.ID">
-                    <img class="card-img-top" src="@ViewBag.LastImg.Nome" alt="Card header image" height="200" style="object-fit:cover">
-                </a>
+                @if (ViewBag.Erro == 1) {
+                    <img class="card-img-top" src="@ViewBag.LastImg" alt="Card header image" height="200" style="object-fit:cover">
+                }
+                else {
+                    <a href="/Produtos/Details/@ViewBag.LastProd.ID">
+                        <img class="card-img-top" src="@ViewBag.LastImg" alt="Card header image" height="200" style="object-fit:cover">
+                    </a>
+                }
             </div>
         </div>
 

@@ -12,7 +12,12 @@ namespace AkiTek.Controllers {
         {
             var lastProd = db.Produtos.OrderByDescending(p => p.ID).First();
             ViewBag.LastProd = lastProd;
-            var lastImg = lastProd.Imagens.OrderBy(i => i.Ordem).First();
+            var lastImg = "img/default.png";
+            try {
+                lastImg = lastProd.Imagens.OrderBy(i => i.Ordem).First().Nome;
+            } catch {
+                ViewBag.Erro = 1;
+            }
             ViewBag.LastImg = lastImg;
             return View();
         }

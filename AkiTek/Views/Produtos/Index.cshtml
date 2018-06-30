@@ -5,7 +5,7 @@
 }
 
 <h2>Catálogo</h2>
-@if (User.IsInRole("Gestor")) {
+@if (User.IsInRole("Admin")) {
     <p>
         @Html.ActionLink("Adicionar Produto", "Create")
     </p>
@@ -26,7 +26,7 @@
                     <h5 class="card-title">@item.NomeProduto</h5>
                     <div class="d-flex" style="display:flex;justify-content:space-around">
                         @if (item.Stock > 0) {
-                            <p class="btn btn-danger btn-sm">
+                            <p class="btn btn-danger btn-sm" style="cursor:default">
                                 @Html.ActionLink("Comprar", "AddToCart", "ShoppingCart", new { id = item.ID }, new { target = "_blank", @style = "color:#ffffff;" })
                             </p>
                         }
@@ -39,7 +39,7 @@
                     </div>
                 </div>
             </div>
-            @if (User.IsInRole("Gestor")) {
+            @if (User.IsInRole("Admin")) {
                 <p>
                     @Html.ActionLink("Editar", "Edit", new { id = item.ID })
                     @Html.ActionLink("Remover", "Delete", new { id = item.ID })

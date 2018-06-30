@@ -10,6 +10,7 @@ using AkiTek.Models;
 
 namespace AkiTek.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class EquipamentosController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

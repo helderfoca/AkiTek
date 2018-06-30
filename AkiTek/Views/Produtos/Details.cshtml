@@ -43,7 +43,7 @@
     </div>
     <hr />
 </div>
-@if (User.IsInRole("Gestor")) {
+@if (User.IsInRole("Admin")) {
     <p>
         @Html.ActionLink("Editar", "Edit", new { id = Model.ID }) |
         @Html.ActionLink("Voltar", "Index")

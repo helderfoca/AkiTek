@@ -11,6 +11,7 @@ using AkiTek.Models;
 
 namespace AkiTek.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ImagensController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -38,9 +39,9 @@ namespace AkiTek.Controllers
         }
 
         // GET: Imagens/Create
-        public ActionResult Create()
+        public ActionResult Create(int ProdutoFK)
         {
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome");
+            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome");
             return View();
         }
 
@@ -63,7 +64,7 @@ namespace AkiTek.Controllers
                 if (img == null) {
                     // não há imagem...
                     ModelState.AddModelError("", "Não foi fornecida uma imagem..."); // gera MSG de erro
-                    ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
+                    //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
                     return View(imagens); 
                 }
                 db.Imagens.Add(imagens);
@@ -73,7 +74,7 @@ namespace AkiTek.Controllers
                 return View("Close");
             }
 
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
+            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
             return View(imagens);
         }
 
@@ -89,7 +90,7 @@ namespace AkiTek.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
+            ViewBag.ProdutoFK = db.Imagens.Find(id).ProdutoFK;//new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
             return View(imagens);
         }
 
@@ -106,7 +107,7 @@ namespace AkiTek.Controllers
                 db.SaveChanges();
                 return View("Close");
             }
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
+            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
             return View("Close");
         }
 

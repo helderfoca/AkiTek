@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -124,10 +125,9 @@ namespace AkiTek.Models {
                 storeDB.OrderDetails.Add(orderDetail);
 
             }
-            // Set the order's total to the orderTotal count
-            order.Total = orderTotal;
-
             // Save the order
+            var myOrder = storeDB.Orders.Where(or => or.OrderId == order.OrderId).Single();
+            myOrder.Total = orderTotal;
             storeDB.SaveChanges();
             // Empty the shopping cart
             EmptyCart();

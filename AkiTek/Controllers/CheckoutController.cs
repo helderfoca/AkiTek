@@ -7,7 +7,6 @@ namespace MvcMusicStore.Controllers {
     [Authorize]
     public class CheckoutController : Controller {
         ApplicationDbContext storeDB = new ApplicationDbContext();
-        const string PromoCode = "FREE";
         //
         // GET: /Checkout/AddressAndPayment
         public ActionResult AddressAndPayment() {
@@ -18,16 +17,15 @@ namespace MvcMusicStore.Controllers {
         [HttpPost]
         public ActionResult AddressAndPayment(FormCollection values) {
             var order = new Order();
+
             TryUpdateModel(order);
 
             try {
-                if (string.Equals(values["PromoCode"], PromoCode,
-                    StringComparison.OrdinalIgnoreCase) == false) {
-                    return View(order);
-                }
-                else {
                     order.Username = User.Identity.Name;
+                    var utilizador = storeDB.Utilizadores.Where(user => user.UserName == order.Username).Single();
+                    order.UserFK = utilizador.ID;
                     order.OrderDate = DateTime.Now;
+                    
 
                     //Save Order
                     storeDB.Orders.Add(order);
@@ -36,9 +34,7 @@ namespace MvcMusicStore.Controllers {
                     var cart = ShoppingCart.GetCart(this.HttpContext);
                     cart.CreateOrder(order);
 
-                    return RedirectToAction("Complete",
-                        new { id = order.OrderId });
-                }
+                    return RedirectToAction("Complete",new { id = order.OrderId });
             }
             catch {
                 //Invalid - redisplay with errors

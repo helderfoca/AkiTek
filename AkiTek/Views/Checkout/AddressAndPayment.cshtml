@@ -8,26 +8,42 @@
         type="text/javascript"></script>
 @using (Html.BeginForm()) {
 
-    <h2>Address And Payment</h2>
+    <h2>Envio e Pagamento</h2>
+    <br />
     <fieldset>
-        <legend>Shipping Information</legend>
+        <legend>Informação para envio</legend>
         @Html.EditorForModel()
     </fieldset>
+    <hr />
     <fieldset>
-        <legend>Payment</legend>
-        <p>
-            We're running a promotion: all music is free
-            with the promo code: "FREE"
-        </p>
+        <legend>Pagamento</legend>
         <div class="editor-label">
-            @Html.Label("Promo Code")
+            @Html.Label("Nome")
         </div>
         <div class="editor-field">
-            @Html.TextBox("PromoCode")
+            @Html.TextBox("Nome")
+        </div>
+        <div class="editor-label">
+            @Html.Label("Número do Cartão")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("Número do Cartão")
+        </div>
+        <div class="editor-label">
+            @Html.Label("Data de Validade")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("Data de Validade")
+        </div>
+        <div class="editor-label">
+            @Html.Label("CVC")
+        </div>
+        <div class="editor-field">
+            @Html.TextBox("CVC")
         </div>
     </fieldset>
-
-    <input type="submit" value="Submit Order" />
+    <hr />
+    <input class="btn" type="submit" value="Submit Order" />
 }
 
 @section Scripts {

@@ -9,10 +9,13 @@ using System.Web.Mvc;
 using AkiTek.Models;
 
 namespace AkiTek.Controllers {
+
+    [Authorize(Roles = "Admin")]
     public class ProdutosController : Controller {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Produtos
+        [AllowAnonymous]
         public ActionResult Index() {
             //   var lista2 = db.Produtos.Where(p => !p.Vendido).Select(p => p.Nome).Distinct().ToList();
 
@@ -32,6 +35,7 @@ namespace AkiTek.Controllers {
         }
 
         // GET: Produtos/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id) {
             if (id == null) {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

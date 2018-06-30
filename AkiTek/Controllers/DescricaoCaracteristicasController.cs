@@ -10,6 +10,7 @@ using AkiTek.Models;
 
 namespace AkiTek.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class DescricaoCaracteristicasController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -76,7 +77,7 @@ namespace AkiTek.Controllers
                 return HttpNotFound();
             }
             ViewBag.CaracteristicaFK = new SelectList(db.Caracteristicas, "ID", "Nome", descricaoCaracteristica.CaracteristicaFK);
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", descricaoCaracteristica.ProdutoFK);
+            ViewBag.ProdutoFK = db.DescricaoCaracteristica.Find(id).ProdutoFK;//new SelectList(db.Produtos, "ID", "Nome", descricaoCaracteristica.ProdutoFK);
             return View(descricaoCaracteristica);
         }
 
@@ -94,7 +95,7 @@ namespace AkiTek.Controllers
                 return View("Close");
             }
             ViewBag.CaracteristicaFK = new SelectList(db.Caracteristicas, "ID", "Nome", descricaoCaracteristica.CaracteristicaFK);
-            ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", descricaoCaracteristica.ProdutoFK);
+            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", descricaoCaracteristica.ProdutoFK);
             return View(descricaoCaracteristica);
         }
 

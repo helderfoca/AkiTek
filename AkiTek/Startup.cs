@@ -39,11 +39,11 @@ namespace AkiTek
             }
             
             // criar a Role 'Gestor'
-            if (!roleManager.RoleExists("Gestor")) {
+            if (!roleManager.RoleExists("Admin")) {
                 // não existe a 'role'
                 // então, criar essa role
                 var role = new IdentityRole();
-                role.Name = "Gestor";
+                role.Name = "Admin";
                 roleManager.Create(role);
             }
             
@@ -55,9 +55,9 @@ namespace AkiTek
             string userPWD = "123_Asd";
             var chkUser = userManager.Create(user, userPWD);
             
-            //Adicionar o Utilizador à respetiva Role-Agentes-
+            //Adicionar o Utilizador à respetiva Role
             if (chkUser.Succeeded) {
-                var result1 = userManager.AddToRole(user.Id, "Gestor");
+                var result1 = userManager.AddToRole(user.Id, "Admin");
             }
 
         }

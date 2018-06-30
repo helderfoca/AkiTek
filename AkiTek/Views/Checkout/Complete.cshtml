@@ -2,9 +2,11 @@
 @{
     ViewBag.Title = "Checkout Complete";
 }
-<h2>Checkout Complete</h2>
-<p>Thanks for your order! Your order number is: @Model</p>
+<h2>Checkout Efetuado com Sucesso</h2>
+<hr />
+<p>Obrigado por comprar na nossa loja! O seu pedido é o número: @Model</p>
+<br />
 <p>
-    How about shopping for some more music in our
-    @Html.ActionLink("store","Index", "Home")
+    Se quiser pode continuar a ver os produtos da nossa
+    @Html.ActionLink("loja","Index", "Produtos")
 </p>

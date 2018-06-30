@@ -211,7 +211,6 @@
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\Utilizadores.cs" />
     <Compile Include="Models\Caracteristicas.cs" />
-    <Compile Include="Models\Compras.cs" />
     <Compile Include="Models\Equipamentos.cs" />
     <Compile Include="Models\Produtos.cs" />
     <Compile Include="Models\IdentityModels.cs" />

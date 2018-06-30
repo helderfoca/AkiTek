@@ -51,7 +51,7 @@
     <br />
     <h4>Imagens do Produto</h4>
     <p>
-        @Html.ActionLink("Adicionar", "Create", "Imagens", new { idProduto = Model.ID }, new { target = "_blank" })
+        @Html.ActionLink("Adicionar", "Create", "Imagens", new { produtoFK = Model.ID }, new { target = "_blank" })
     </p>
     @Html.Partial("_ImagensPartial", Model.Imagens, null)
     <hr />
@@ -65,7 +65,7 @@
 
     <div class="form-group">
         <div class="col-md-10">
-            <input type="submit" value="Save" class="btn btn-default" />
+            <input type="submit" value="Guardar" class="btn btn-default" />
         </div>
     </div>
 </div>

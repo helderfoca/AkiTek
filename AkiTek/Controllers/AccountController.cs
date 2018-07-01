@@ -162,6 +162,7 @@ namespace AkiTek.Controllers
                         utilizador.UserName = user.UserName;
                         ApplicationDbContext db = new ApplicationDbContext();
                         db.Utilizadores.Add(utilizador);
+                        UserManager.AddToRole(user.Id, "Cliente");
                         db.SaveChanges();
                     }
                     catch (Exception ex) {

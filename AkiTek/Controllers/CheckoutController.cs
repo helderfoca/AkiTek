@@ -21,9 +21,12 @@ namespace AkiTek.Controllers {
             TryUpdateModel(order);
 
             try {
+                    // email do utilizador logado
                     order.Username = User.Identity.Name;
+                    // referência para a tabela utilizadores
                     var utilizador = storeDB.Utilizadores.Where(user => user.UserName == order.Username).Single();
                     order.UserFK = utilizador.ID;
+                    // data da encomenda
                     order.OrderDate = DateTime.Now;
                     
 

@@ -10,12 +10,17 @@ namespace AkiTek.Controllers {
         private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
+            // descobre o produto mais recente e manda-o pela ViewBag
             var lastProd = db.Produtos.OrderByDescending(p => p.ID).First();
             ViewBag.LastProd = lastProd;
+            // como inicialmente os produtos são criados sem imagem existe uma imagem padrão
             var lastImg = "img/default.png";
+            // se o produto tiver imagem manda-a, senão manda a padrão e uma variavél de controlo para remover o link para os detalhes para não provocar erro
             try {
+                // imagem do produto mais recente
                 lastImg = lastProd.Imagens.OrderBy(i => i.Ordem).First().Nome;
             } catch {
+                // variavel de controlo
                 ViewBag.Erro = 1;
             }
             ViewBag.LastImg = lastImg;

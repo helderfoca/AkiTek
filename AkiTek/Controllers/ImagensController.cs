@@ -41,7 +41,6 @@ namespace AkiTek.Controllers
         // GET: Imagens/Create
         public ActionResult Create(int ProdutoFK)
         {
-            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome");
             return View();
         }
 
@@ -56,6 +55,7 @@ namespace AkiTek.Controllers
 
             if (ModelState.IsValid)
             {
+                // muda o nome que o utilizador deu a imagem para ser o url desta
                 string nome = "/img/" +  imagens.Nome + ".jpg";
                 string url = Path.Combine(Server.MapPath("~/img/"), imagens.Nome + ".jpg"); // indica onde a imagem será guardada
                 imagens.Nome = nome;
@@ -64,17 +64,16 @@ namespace AkiTek.Controllers
                 if (img == null) {
                     // não há imagem...
                     ModelState.AddModelError("", "Não foi fornecida uma imagem..."); // gera MSG de erro
-                    //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
                     return View(imagens); 
                 }
                 db.Imagens.Add(imagens);
                 db.SaveChanges();
                 // guardar a imagem no disco rígido
                 img.SaveAs(url);
+                // fecha a janela
                 return View("Close");
             }
-
-            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
+            
             return View(imagens);
         }
 
@@ -90,7 +89,8 @@ namespace AkiTek.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ProdutoFK = db.Imagens.Find(id).ProdutoFK;//new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
+            // envia a referência ao produto a que pertence
+            ViewBag.ProdutoFK = db.Imagens.Find(id).ProdutoFK;
             return View(imagens);
         }
 
@@ -106,8 +106,9 @@ namespace AkiTek.Controllers
                 db.Entry(imagens).State = EntityState.Modified;
                 db.SaveChanges();
                 return View("Close");
+                // fecha a janela
             }
-            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", imagens.ProdutoFK);
+            // fecha a janela
             return View("Close");
         }
 
@@ -135,6 +136,7 @@ namespace AkiTek.Controllers
             db.Imagens.Remove(imagens);
             db.SaveChanges();
             return View("Close");
+            // fecha a janela
         }
 
         protected override void Dispose(bool disposing)

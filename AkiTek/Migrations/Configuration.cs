@@ -426,7 +426,7 @@ namespace AkiTek.Migrations
                                                                 "Carregador Nokia, " +
                                                                 "Bateria, " +
                                                                 "Guia rápido",
-                    ProdutoFK=7, CaracteristicaFK=20 },
+                    ProdutoFK=7, CaracteristicaFK=21 },
                 new DescricaoCaracteristica {ID=132, Descricao="Livre",
                     ProdutoFK=8, CaracteristicaFK=1 },
                 new DescricaoCaracteristica {ID=133, Descricao="Não",

@@ -18,8 +18,6 @@ namespace AkiTek.Controllers
         // GET: Caracteristicas
         public ActionResult Index(int id)
         {
-            //var produto
-
             return View(db.Caracteristicas.ToList());
         }
 
@@ -53,10 +51,7 @@ namespace AkiTek.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var prod = db.Produtos.Find(idProduto);
-                //prod.ListaCaracteristicas.Add(caracteristicas);
-                //db.Caracteristicas.Add(caracteristicas);
-                //db.SaveChanges();
+                // fecha a janela
                 return View("Close");
             }
 
@@ -89,6 +84,7 @@ namespace AkiTek.Controllers
             {
                 db.Entry(caracteristicas).State = EntityState.Modified;
                 db.SaveChanges();
+                // fecha a janela
                 return View("Close");
             }
             return View(caracteristicas);
@@ -117,6 +113,7 @@ namespace AkiTek.Controllers
             Caracteristicas caracteristicas = db.Caracteristicas.Find(id);
             db.Caracteristicas.Remove(caracteristicas);
             db.SaveChanges();
+            // fecha a janela
             return View("Close");
         }
 

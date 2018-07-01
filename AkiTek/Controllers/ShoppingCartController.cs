@@ -26,7 +26,7 @@ namespace AkiTek.Controllers
         //
         // GET: /Store/AddToCart/5
         public ActionResult AddToCart(int id) {
-            // Retrieve the album from the database
+            // Vai buscar o produto à base de dados
             var addedProd = storeDB.Produtos
                 .Single(produto => produto.ID == id);
 
@@ -45,7 +45,7 @@ namespace AkiTek.Controllers
             // Remove the item from the cart
             var cart = ShoppingCart.GetCart(this.HttpContext);
 
-            // Get the name of the album to display confirmation
+            // Vai buscar o nome do produto
             string nomeProduto = storeDB.Carts
                 .Single(item => item.RecordId == id).Produto.Nome;
 

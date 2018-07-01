@@ -20,7 +20,7 @@ namespace AkiTek.Models {
             return GetCart(controller.HttpContext);
         }
         public void AddToCart(Produtos produto) {
-            // Get the matching cart and album instances
+            // Get the matching cart and product instances
             var cartItem = storeDB.Carts.SingleOrDefault(
                 c => c.CartId == ShoppingCartId
                 && c.ProdutoId == produto.ID);
@@ -115,6 +115,7 @@ namespace AkiTek.Models {
                     Quantity = item.Quantity,
                     ListaEquip = item.Produto.ListaEquipamentos.Take(item.Quantity).ToList()
                 };
+                // atualiza os equipamentos que foram vendidos
                 foreach (var eq in orderDetail.ListaEquip) {
                         eq.Vendido = true;
                 }
@@ -125,9 +126,10 @@ namespace AkiTek.Models {
                 storeDB.OrderDetails.Add(orderDetail);
 
             }
-            // Save the order
+            // guarda o total na tabela
             var myOrder = storeDB.Orders.Where(or => or.OrderId == order.OrderId).Single();
             myOrder.Total = orderTotal;
+            // Save the order
             storeDB.SaveChanges();
             // Empty the shopping cart
             EmptyCart();

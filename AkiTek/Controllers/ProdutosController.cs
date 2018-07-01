@@ -17,8 +17,8 @@ namespace AkiTek.Controllers {
         // GET: Produtos
         [AllowAnonymous]
         public ActionResult Index() {
-            //   var lista2 = db.Produtos.Where(p => !p.Vendido).Select(p => p.Nome).Distinct().ToList();
 
+            // utiliza um view model para ter o stock
             var lista = from p in db.Produtos
                         select new ProdutosViewModel {
                             ID = p.ID,
@@ -26,11 +26,7 @@ namespace AkiTek.Controllers {
                             Imagem = p.Imagens.OrderBy(i => i.Ordem).FirstOrDefault().Nome,
                             Stock = p.ListaEquipamentos.Where(eq => !eq.Vendido).ToList().Count,
                             Preco = p.Preco
-                        }
-
-                ;
-
-
+                        };
             return View(lista);
         }
 
@@ -50,7 +46,6 @@ namespace AkiTek.Controllers {
         // GET: Produtos/Create
         public ActionResult Create() {
             var model = new Produtos();
-            //model.ListaCaracteristicas.Add(new Caracteristicas());
             return View(model);
         }
 

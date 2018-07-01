@@ -11,8 +11,6 @@ namespace AkiTek.Models {
 
         public string NumSerie { get; set; }
 
-        //public decimal? PrecoVenda { get; set; }
-
         public bool Vendido { get; set; }
 
         //*************************************************************************************

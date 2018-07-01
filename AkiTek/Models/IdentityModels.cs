@@ -30,8 +30,6 @@ namespace AkiTek.Models
 
         public virtual DbSet<Utilizadores> Utilizadores { get; set; }
 
-        //public virtual DbSet<Compras> Compras { get; set; }
-
         public virtual DbSet<Imagens> Imagens { get; set; }
 
         public virtual DbSet<Caracteristicas> Caracteristicas { get; set; }
@@ -42,27 +40,11 @@ namespace AkiTek.Models
 
         public virtual DbSet<DescricaoCaracteristica> DescricaoCaracteristica { get; set; }
 
-        // Carrinho
+        // Carrinho e Checkout
 
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-
-
-
-
-        ///// <summary>
-        ///// configura a forma como as tabelas são criadas
-        ///// </summary>
-        ///// <param name="modelBuilder">objeto que referencia o gerador de base de dados</param>
-        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        //{
-
-        //    modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
-        //    modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
-
-        //    base.OnModelCreating(modelBuilder);
-        //}
 
         public static ApplicationDbContext Create()
         {

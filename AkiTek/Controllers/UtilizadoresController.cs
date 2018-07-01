@@ -8,8 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using AkiTek.Models;
 
-namespace AkiTek.Controllers
-{
+namespace AkiTek.Controllers {
+
+    [Authorize(Roles = "Admin")]
     public class UtilizadoresController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -19,9 +20,10 @@ namespace AkiTek.Controllers
         {
             return View(db.Utilizadores.ToList());
         }
-
-        // GET: Utilizadores/Details/5
+        
+        [AllowAnonymous]
         public ActionResult _DadosConta() {
+            // Vai buscar os dados do utilizador logado
             Utilizadores utilizadores = db.Utilizadores.Where(u => u.UserName == User.Identity.Name).Single();
             if (utilizadores == null) {
                 return HttpNotFound();

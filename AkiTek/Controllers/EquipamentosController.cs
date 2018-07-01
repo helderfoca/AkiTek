@@ -40,8 +40,6 @@ namespace AkiTek.Controllers
         // GET: Equipamentos/Create
         public ActionResult Create(int produtoFK)
         {
-            ViewBag.CompraFK = new SelectList(db.OrderDetails, "NumFatura", "NumFatura");
-            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome");
             return View();
         }
 
@@ -54,14 +52,14 @@ namespace AkiTek.Controllers
         {
             if (ModelState.IsValid)
             {
+                // gera um novo número de série
                 equipamentos.NumSerie = Guid.NewGuid().ToString();
                 db.Equipamentos.Add(equipamentos);
                 db.SaveChanges();
+                // fecha a janela
                 return View("Close");
             }
-
-            ViewBag.CompraFK = new SelectList(db.OrderDetails, "NumFatura", "NumFatura", equipamentos.CompraFK);
-            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", equipamentos.ProdutoFK);
+            
             return View(equipamentos);
         }
 
@@ -123,6 +121,7 @@ namespace AkiTek.Controllers
             Equipamentos equipamentos = db.Equipamentos.Find(id);
             db.Equipamentos.Remove(equipamentos);
             db.SaveChanges();
+            // fecha a janela
             return View("Close");
         }
 

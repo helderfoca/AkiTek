@@ -224,6 +224,10 @@
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\AkiTekDB.mdf" />
+    <Content Include="App_Data\AkiTekDB_log.ldf">
+      <DependentUpon>AkiTekDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -361,9 +365,7 @@
     <Content Include="Views\Utilizadores\Index.cshtml" />
     <Content Include="Views\Utilizadores\_DadosConta.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>

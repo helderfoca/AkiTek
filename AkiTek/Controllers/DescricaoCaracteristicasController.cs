@@ -40,8 +40,8 @@ namespace AkiTek.Controllers
         // GET: DescricaoCaracteristicas/Create
         public ActionResult Create( int ProdutoFK)
         {
+            // lista para selecionar a especificação
             ViewBag.CaracteristicaFK = new SelectList(db.Caracteristicas, "ID", "Nome");
-            //ViewBag.ProdutoFK = db.Produtos.Find(ProdutoFK);
             return View();
         }
 
@@ -56,11 +56,12 @@ namespace AkiTek.Controllers
             {
                 db.DescricaoCaracteristica.Add(descricaoCaracteristica);
                 db.SaveChanges();
+                // fecha a janela
                 return View("Close");
             }
 
+            // lista para selecionar a especificação
             ViewBag.CaracteristicaFK = new SelectList(db.Caracteristicas, "ID", "Nome", descricaoCaracteristica.CaracteristicaFK);
-            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", descricaoCaracteristica.ProdutoFK);
             return View(descricaoCaracteristica);
         }
 
@@ -77,7 +78,7 @@ namespace AkiTek.Controllers
                 return HttpNotFound();
             }
             ViewBag.CaracteristicaFK = new SelectList(db.Caracteristicas, "ID", "Nome", descricaoCaracteristica.CaracteristicaFK);
-            ViewBag.ProdutoFK = db.DescricaoCaracteristica.Find(id).ProdutoFK;//new SelectList(db.Produtos, "ID", "Nome", descricaoCaracteristica.ProdutoFK);
+            ViewBag.ProdutoFK = db.DescricaoCaracteristica.Find(id).ProdutoFK;
             return View(descricaoCaracteristica);
         }
 
@@ -92,10 +93,11 @@ namespace AkiTek.Controllers
             {
                 db.Entry(descricaoCaracteristica).State = EntityState.Modified;
                 db.SaveChanges();
+                // fecha a janela
                 return View("Close");
             }
+            // lista para selecionar a especificação
             ViewBag.CaracteristicaFK = new SelectList(db.Caracteristicas, "ID", "Nome", descricaoCaracteristica.CaracteristicaFK);
-            //ViewBag.ProdutoFK = new SelectList(db.Produtos, "ID", "Nome", descricaoCaracteristica.ProdutoFK);
             return View(descricaoCaracteristica);
         }
 
@@ -122,6 +124,7 @@ namespace AkiTek.Controllers
             DescricaoCaracteristica descricaoCaracteristica = db.DescricaoCaracteristica.Find(id);
             db.DescricaoCaracteristica.Remove(descricaoCaracteristica);
             db.SaveChanges();
+            // fecha a janela
             return View("Close");
         }
 

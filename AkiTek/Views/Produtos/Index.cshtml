@@ -17,7 +17,7 @@
     <div id="rowCateg" class="row"></div>
 
     @foreach (var item in Model) {
-        <div class="col-sm-12 col-lg-3 d-flex align-items-stretch">
+        <div class="col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch" style=" height:320px">
             <div class="card m-3" style="width: 18rem;">
                 @if (@item.Imagem == null) {
                     <img class="card-img-top" src="~/img/default.png" alt="Card header image" height="200" style="object-fit:cover">
@@ -34,11 +34,12 @@
                                     @Html.ActionLink("Comprar", "AddToCart", "ShoppingCart", new { id = item.ID }, new { target = "_blank", @style = "color:#ffffff;" })
                                 </p>
                             }
-                            @if (item.Stock > 0) {
+                            @if (item.Stock > 3) {
                                 <span class="btn btn-sm" style="color:green; text-align:center; display:block" disabled>Disponível</span>
-                            }
-                            else {
-                                <span class="btn btn-sm" style="color:red; text-align:center; display:block" disabled>Esgotado</span>
+                            } else if (item.Stock > 0) {
+                            <span class="btn btn-sm" style="color:orange; text-align:center; display:block" disabled>Poucas Unidades</span>
+                            } else {
+                            <span class="btn btn-sm" style="color:red; text-align:center; display:block" disabled>Esgotado</span>
                             }
                         </div>
                     </div>
